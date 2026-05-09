@@ -172,7 +172,7 @@ export default function Home() {
         fontSize: '0.85rem',
         marginTop: 60,
       }}>
-        <p>© 2026 Acae — Sistema de Chamados. Todos os direitos reservados.</p>
+        <p>© 2026 Acaê — Sistema de Chamados. Todos os direitos reservados.</p>
       </footer>
     </main>
   )
