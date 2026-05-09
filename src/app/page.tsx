@@ -36,7 +36,6 @@ export default function Home() {
           </div>
         </div>
       </header>
-
       {/* Hero */}
       <section style={{ paddingTop: 140, paddingBottom: 100, textAlign: 'center', padding: '140px 1.5rem 100px' }}>
         <div className="animate-fade-in-up" style={{ maxWidth: 720, margin: '0 auto' }}>
@@ -48,7 +47,6 @@ export default function Home() {
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#8b47ff', boxShadow: '0 0 8px #8b47ff' }}></span>
             <span style={{ fontSize: '0.8rem', color: 'var(--Acaê-300)', fontWeight: 600 }}>Sistema em operação</span>
           </div>
-
           <h1 style={{
             fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 800, lineHeight: 1.15,
             marginBottom: 24, color: '#f0eeff',
@@ -60,12 +58,10 @@ export default function Home() {
               WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
             }}>Simplificada</span>
           </h1>
-
           <p style={{ fontSize: '1.1rem', color: 'rgba(240,238,255,0.6)', lineHeight: 1.7, marginBottom: 40, maxWidth: 560, margin: '0 auto 40px' }}>
             Abra chamados para as equipes de <strong style={{ color: 'var(--Acaê-300)' }}>TI</strong> e{' '}
             <strong style={{ color: '#7dd3fc' }}>Manutenção</strong> de forma rápida e acompanhe o status em tempo real.
           </p>
-
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/login" className="btn-primary" style={{ padding: '0.75rem 1.75rem', fontSize: '1rem' }}>
               Abrir um Chamado
@@ -76,7 +72,6 @@ export default function Home() {
             </Link>
           </div>
         </div>
-
         {/* Stats */}
         <div className="animate-fade-in-up animate-delay-200" style={{
           maxWidth: 800, margin: '80px auto 0',
@@ -96,7 +91,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       {/* Areas Section */}
       <section style={{ padding: '60px 1.5rem', maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
@@ -107,7 +101,6 @@ export default function Home() {
             Selecione a área correta ao abrir seu chamado
           </p>
         </div>
-
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
           {/* TI Card */}
           <div className="glass-card" style={{ padding: '2rem' }}>
@@ -134,7 +127,6 @@ export default function Home() {
               ))}
             </ul>
           </div>
-
           {/* Manutenção Card */}
           <div className="glass-card" style={{ padding: '2rem' }}>
             <div style={{
@@ -162,7 +154,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer style={{
         borderTop: '1px solid rgba(139,71,255,0.1)',

@@ -1,15 +1,14 @@
 'use client'
-
 import { useEffect, useState, useCallback } from 'react'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Profile } from '@/lib/types'
 import {
+
   Ticket, LayoutDashboard, Plus, List, Settings,
   LogOut, Users, ChevronRight, Menu, X, Shield
 } from 'lucide-react'
-
 interface AppShellProps {
   children: React.ReactNode
 }
@@ -19,51 +18,41 @@ export function AppShell({ children }: AppShellProps) {
   const pathname = usePathname()
   const [profile, setProfile] = useState<Profile | null>(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
-
   const loadProfile = useCallback(async () => {
     const supabase = createClient()
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return
-
     const { data } = await supabase
       .from('profiles')
       .select('*')
       .eq('id', user.id)
       .single()
-
     if (data) setProfile(data as Profile)
   }, [])
-
   useEffect(() => {
     loadProfile()
   }, [loadProfile])
-
   const handleLogout = async () => {
     const supabase = createClient()
     await supabase.auth.signOut()
     router.push('/login')
     router.refresh()
   }
-
   const isAdmin = profile?.role === 'admin'
   const isTecnico = profile?.role === 'tecnico' || isAdmin
-
   const navItems = [
     { href: '/dashboard', label: 'Dashboard', icon: <LayoutDashboard size={18} /> },
     { href: '/chamados/novo', label: 'Novo Chamado', icon: <Plus size={18} /> },
     { href: '/chamados', label: 'Meus Chamados', icon: <List size={18} /> },
   ]
-
   const adminItems = [
     { href: '/admin', label: 'Painel Admin', icon: <Shield size={18} /> },
     { href: '/admin/chamados', label: 'Todos os Chamados', icon: <Ticket size={18} /> },
     { href: '/admin/usuarios', label: 'Usuários', icon: <Users size={18} /> },
   ]
-
   const techItems = [
     { href: '/admin/chamados', label: 'Chamados da Equipe', icon: <Ticket size={18} /> },
   ]
-
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
       {/* Overlay mobile */}
@@ -77,7 +66,6 @@ export function AppShell({ children }: AppShellProps) {
           className="mobile-overlay"
         />
       )}
-
       {/* Sidebar */}
       <aside style={{
         width: 240, flexShrink: 0,
@@ -104,7 +92,6 @@ export function AppShell({ children }: AppShellProps) {
             </div>
           </div>
         </div>
-
         {/* Nav */}
         <nav style={{ flex: 1, padding: '1rem 0.75rem', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 4 }}>
           <div style={{ fontSize: '0.68rem', fontWeight: 700, color: 'rgba(240,238,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.08em', padding: '0 0.5rem', marginBottom: 4 }}>
@@ -120,7 +107,6 @@ export function AppShell({ children }: AppShellProps) {
               {item.label}
             </Link>
           ))}
-
           {isAdmin && (
             <>
               <div style={{ fontSize: '0.68rem', fontWeight: 700, color: 'rgba(240,238,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.08em', padding: '0 0.5rem', marginTop: 12, marginBottom: 4 }}>
@@ -138,7 +124,6 @@ export function AppShell({ children }: AppShellProps) {
               ))}
             </>
           )}
-
           {isTecnico && !isAdmin && (
             <>
               <div style={{ fontSize: '0.68rem', fontWeight: 700, color: 'rgba(240,238,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.08em', padding: '0 0.5rem', marginTop: 12, marginBottom: 4 }}>
@@ -157,7 +142,6 @@ export function AppShell({ children }: AppShellProps) {
             </>
           )}
         </nav>
-
         {/* User */}
         <div style={{ padding: '0.75rem', borderTop: '1px solid rgba(139,71,255,0.1)' }}>
           {profile && (
@@ -179,7 +163,6 @@ export function AppShell({ children }: AppShellProps) {
           </button>
         </div>
       </aside>
-
       {/* Main content */}
       <main style={{ flex: 1, marginLeft: 240, minHeight: '100vh', padding: '0' }}>
         {children}
