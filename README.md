@@ -1,10 +1,10 @@
-# 🍇 Acai — Sistema de Chamados
+#  Acai — Sistema de Chamados
 
 Sistema de abertura e acompanhamento de chamados para as equipes de **TI** e **Manutenção**, construído com Next.js 14 + Supabase.
 
 ---
 
-## 🚀 Setup Rápido
+##  Setup Rápido
 
 ### 1. Configurar o Supabase
 
@@ -22,7 +22,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
 SUPABASE_SERVICE_ROLE_KEY=eyJ...
 ```
 
-> ⚠️ A `SERVICE_ROLE_KEY` fica em **Project Settings → API → service_role**. **Nunca exponha ela no frontend.**
+>  A `SERVICE_ROLE_KEY` fica em **Project Settings → API → service_role**. **Nunca exponha ela no frontend.**
 
 ### 3. Criar o usuário Admin inicial
 
@@ -45,7 +45,7 @@ Acesse: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 📱 Páginas do Sistema
+##  Páginas do Sistema
 
 | Rota | Acesso | Descrição |
 |------|--------|-----------|
@@ -61,7 +61,7 @@ Acesse: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 👥 Perfis de Usuário
+##  Perfis de Usuário
 
 | Role | Permissões |
 |------|------------|
@@ -71,7 +71,7 @@ Acesse: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🗄️ Banco de Dados
+## Banco de Dados
 
 Tabelas principais:
 - `profiles` — usuários (extende `auth.users`)
