@@ -99,7 +99,7 @@ export function AppShell({ children }: AppShellProps) {
               <Ticket size={16} color="#fff" />
             </div>
             <div>
-              <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#f0eeff', lineHeight: 1 }}>Acai</div>
+              <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#f0eeff', lineHeight: 1 }}>Acae</div>
               <div style={{ fontSize: '0.7rem', color: 'rgba(240,238,255,0.35)', marginTop: 2 }}>Chamados</div>
             </div>
           </div>

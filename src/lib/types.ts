@@ -1,4 +1,4 @@
-// Supabase client types for the Acai ticket system
+// Supabase client types for the Acae ticket system
 
 export type UserRole = 'admin' | 'tecnico' | 'usuario'
 

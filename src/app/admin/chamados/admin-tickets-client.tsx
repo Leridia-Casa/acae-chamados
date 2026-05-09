@@ -51,7 +51,7 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
           <Search size={14} style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', color: 'rgba(240,238,255,0.3)' }} />
           <input
             type="text"
-            className="acai-input"
+            className="Acae-input"
             style={{ paddingLeft: '2.2rem', padding: '0.5rem 0.875rem 0.5rem 2.2rem' }}
             placeholder="Buscar por protocolo, título, solicitante..."
             value={search}
@@ -59,20 +59,20 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
           />
         </div>
         {isAdmin && (
-          <select className="acai-select" style={{ padding: '0.5rem 1.5rem 0.5rem 0.875rem', minWidth: 130 }} value={filterArea} onChange={e => setFilterArea(e.target.value)}>
+          <select className="Acae-select" style={{ padding: '0.5rem 1.5rem 0.5rem 0.875rem', minWidth: 130 }} value={filterArea} onChange={e => setFilterArea(e.target.value)}>
             <option value="">Todas as áreas</option>
             <option value="TI">TI</option>
             <option value="Manutenção">Manutenção</option>
           </select>
         )}
-        <select className="acai-select" style={{ padding: '0.5rem 1.5rem 0.5rem 0.875rem', minWidth: 130 }} value={filterPriority} onChange={e => setFilterPriority(e.target.value)}>
+        <select className="Acae-select" style={{ padding: '0.5rem 1.5rem 0.5rem 0.875rem', minWidth: 130 }} value={filterPriority} onChange={e => setFilterPriority(e.target.value)}>
           <option value="">Prioridade</option>
           <option value="Baixa">Baixa</option>
           <option value="Média">Média</option>
           <option value="Alta">Alta</option>
           <option value="Urgente">Urgente</option>
         </select>
-        <select className="acai-select" style={{ padding: '0.5rem 1.5rem 0.5rem 0.875rem', minWidth: 150 }} value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
+        <select className="Acae-select" style={{ padding: '0.5rem 1.5rem 0.5rem 0.875rem', minWidth: 150 }} value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
           <option value="">Todos os status</option>
           <option value="Aberto">Aberto</option>
           <option value="Em Andamento">Em Andamento</option>
@@ -89,7 +89,7 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
 
       {/* Table */}
       <div className="animate-fade-in-up animate-delay-200 glass-card" style={{ overflow: 'auto' }}>
-        <table className="acai-table" style={{ minWidth: 800 }}>
+        <table className="Acae-table" style={{ minWidth: 800 }}>
           <thead>
             <tr>
               <th>Protocolo</th>
@@ -115,7 +115,7 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
                   background: ticket.priority === 'Urgente' && ticket.status !== 'Resolvido' && ticket.status !== 'Fechado'
                     ? 'rgba(239,68,68,0.03)' : undefined
                 }}>
-                  <td><span style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--acai-300)' }}>{ticket.protocol}</span></td>
+                  <td><span style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--Acae-300)' }}>{ticket.protocol}</span></td>
                   <td style={{ fontWeight: 500, maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{ticket.title}</td>
                   <td style={{ fontSize: '0.82rem', color: 'rgba(240,238,255,0.55)' }}>{ticket.user?.full_name ?? '—'}</td>
                   <td><AreaBadge area={ticket.area!} /></td>

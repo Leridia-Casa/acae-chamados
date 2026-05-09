@@ -1,5 +1,5 @@
 -- ========================================
--- ACAI - Schema do Supabase
+-- Acae - Schema do Supabase
 -- Execute este SQL no SQL Editor do Supabase
 -- ========================================
 

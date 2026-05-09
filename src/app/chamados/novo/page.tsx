@@ -38,7 +38,7 @@ export default function NovoChamadoPage() {
   const generateProtocol = () => {
     const year = new Date().getFullYear()
     const rand = Math.floor(Math.random() * 90000) + 10000
-    return `ACAI-${year}-${rand}`
+    return `Acae-${year}-${rand}`
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -98,7 +98,7 @@ export default function NovoChamadoPage() {
               borderRadius: 12, padding: '1rem', marginBottom: 28,
             }}>
               <p style={{ fontSize: '0.78rem', color: 'rgba(240,238,255,0.45)', marginBottom: 4 }}>NÚMERO DO PROTOCOLO</p>
-              <p style={{ fontFamily: 'monospace', fontSize: '1.3rem', fontWeight: 700, color: 'var(--acai-300)', letterSpacing: '0.05em' }}>
+              <p style={{ fontFamily: 'monospace', fontSize: '1.3rem', fontWeight: 700, color: 'var(--Acae-300)', letterSpacing: '0.05em' }}>
                 {protocol}
               </p>
             </div>
@@ -143,7 +143,7 @@ export default function NovoChamadoPage() {
             <label className="form-label" style={{ marginBottom: 12 }}>Área de Atendimento *</label>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
               {([
-                { value: 'TI', label: 'Tecnologia da Informação', desc: 'Computadores, sistemas, rede', icon: <Monitor size={22} />, color: 'var(--acai-400)' },
+                { value: 'TI', label: 'Tecnologia da Informação', desc: 'Computadores, sistemas, rede', icon: <Monitor size={22} />, color: 'var(--Acae-400)' },
                 { value: 'Manutenção', label: 'Manutenção', desc: 'Elétrica, reparos, infraestrutura', icon: <Wrench size={22} />, color: '#38bdf8' },
               ] as const).map(area => (
                 <button
@@ -177,7 +177,7 @@ export default function NovoChamadoPage() {
               <input
                 type="text"
                 id="ticket-title"
-                className="acai-input"
+                className="Acae-input"
                 placeholder="Ex: Computador não liga"
                 value={form.title}
                 onChange={e => setForm(f => ({ ...f, title: e.target.value }))}
@@ -190,7 +190,7 @@ export default function NovoChamadoPage() {
               <div style={{ position: 'relative' }}>
                 <select
                   id="ticket-priority"
-                  className="acai-select"
+                  className="Acae-select"
                   value={form.priority}
                   onChange={e => setForm(f => ({ ...f, priority: e.target.value as Priority }))}
                   style={{ paddingRight: '2rem' }}
@@ -218,7 +218,7 @@ export default function NovoChamadoPage() {
               <input
                 type="text"
                 id="ticket-location"
-                className="acai-input"
+                className="Acae-input"
                 style={{ paddingLeft: '2.5rem' }}
                 placeholder="Ex: Bloco A, Sala 201"
                 value={form.location}
@@ -232,7 +232,7 @@ export default function NovoChamadoPage() {
             <label className="form-label">Descrição Detalhada *</label>
             <textarea
               id="ticket-description"
-              className="acai-textarea"
+              className="Acae-textarea"
               placeholder="Descreva o problema com o máximo de detalhes possível. Quanto mais informações, mais rápida será a resolução."
               value={form.description}
               onChange={e => setForm(f => ({ ...f, description: e.target.value }))}

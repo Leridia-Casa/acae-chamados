@@ -94,7 +94,7 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
           <Search size={15} style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', color: 'rgba(240,238,255,0.3)' }} />
           <input
             type="text"
-            className="acai-input"
+            className="Acae-input"
             style={{ paddingLeft: '2.2rem', padding: '0.5rem 0.875rem 0.5rem 2.2rem' }}
             placeholder="Buscar por nome ou e-mail..."
             value={search}
@@ -105,7 +105,7 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
 
       {/* Users table */}
       <div className="animate-fade-in-up animate-delay-200 glass-card" style={{ overflow: 'hidden' }}>
-        <table className="acai-table">
+        <table className="Acae-table">
           <thead>
             <tr>
               <th>Usuário</th>
@@ -131,7 +131,7 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
                     </div>
                     <span style={{ fontWeight: 600, fontSize: '0.875rem' }}>{u.full_name}</span>
                     {u.id === currentUserId && (
-                      <span style={{ fontSize: '0.68rem', background: 'rgba(139,71,255,0.15)', color: 'var(--acai-300)', border: '1px solid rgba(139,71,255,0.3)', borderRadius: 4, padding: '1px 6px' }}>Você</span>
+                      <span style={{ fontSize: '0.68rem', background: 'rgba(139,71,255,0.15)', color: 'var(--Acae-300)', border: '1px solid rgba(139,71,255,0.3)', borderRadius: 4, padding: '1px 6px' }}>Você</span>
                     )}
                   </div>
                 </td>
@@ -186,11 +186,11 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
             <form onSubmit={handleCreate} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               <div>
                 <label className="form-label">Nome Completo *</label>
-                <input type="text" id="new-user-name" className="acai-input" placeholder="Nome do usuário" value={newUser.full_name} onChange={e => setNewUser(u => ({ ...u, full_name: e.target.value }))} required />
+                <input type="text" id="new-user-name" className="Acae-input" placeholder="Nome do usuário" value={newUser.full_name} onChange={e => setNewUser(u => ({ ...u, full_name: e.target.value }))} required />
               </div>
               <div>
                 <label className="form-label">E-mail *</label>
-                <input type="email" id="new-user-email" className="acai-input" placeholder="email@acai.com" value={newUser.email} onChange={e => setNewUser(u => ({ ...u, email: e.target.value }))} required />
+                <input type="email" id="new-user-email" className="Acae-input" placeholder="email@Acae.com" value={newUser.email} onChange={e => setNewUser(u => ({ ...u, email: e.target.value }))} required />
               </div>
               <div>
                 <label className="form-label">Senha *</label>
@@ -198,7 +198,7 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
                   <input
                     type={showPwd ? 'text' : 'password'}
                     id="new-user-password"
-                    className="acai-input"
+                    className="Acae-input"
                     style={{ paddingRight: '2.5rem' }}
                     placeholder="Mínimo 8 caracteres"
                     value={newUser.password}
@@ -214,7 +214,7 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                 <div>
                   <label className="form-label">Perfil *</label>
-                  <select id="new-user-role" className="acai-select" value={newUser.role} onChange={e => setNewUser(u => ({ ...u, role: e.target.value as UserRole }))}>
+                  <select id="new-user-role" className="Acae-select" value={newUser.role} onChange={e => setNewUser(u => ({ ...u, role: e.target.value as UserRole }))}>
                     <option value="usuario">Usuário</option>
                     <option value="tecnico">Técnico</option>
                     <option value="admin">Admin</option>
@@ -223,7 +223,7 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
                 {(newUser.role === 'tecnico') && (
                   <div>
                     <label className="form-label">Área</label>
-                    <select id="new-user-area" className="acai-select" value={newUser.area} onChange={e => setNewUser(u => ({ ...u, area: e.target.value as TicketArea }))}>
+                    <select id="new-user-area" className="Acae-select" value={newUser.area} onChange={e => setNewUser(u => ({ ...u, area: e.target.value as TicketArea }))}>
                       <option value="">Selecione...</option>
                       <option value="TI">TI</option>
                       <option value="Manutenção">Manutenção</option>

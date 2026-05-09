@@ -4,18 +4,18 @@
   --background: #0a0a0f;
   --foreground: #f0eeff;
 
-  /* Acai brand — deep purple palette */
-  --acai-50: #f5f0ff;
-  --acai-100: #ede5ff;
-  --acai-200: #ddd0ff;
-  --acai-300: #c4a8ff;
-  --acai-400: #a673ff;
-  --acai-500: #8b47ff;
-  --acai-600: #7c22ff;
-  --acai-700: #6d12ee;
-  --acai-800: #5c0ecb;
-  --acai-900: #4c0da5;
-  --acai-950: #2e0669;
+  /* Acae brand — deep purple palette */
+  --Acae-50: #f5f0ff;
+  --Acae-100: #ede5ff;
+  --Acae-200: #ddd0ff;
+  --Acae-300: #c4a8ff;
+  --Acae-400: #a673ff;
+  --Acae-500: #8b47ff;
+  --Acae-600: #7c22ff;
+  --Acae-700: #6d12ee;
+  --Acae-800: #5c0ecb;
+  --Acae-900: #4c0da5;
+  --Acae-950: #2e0669;
 
   --glass-bg: rgba(139, 71, 255, 0.05);
   --glass-border: rgba(139, 71, 255, 0.15);
@@ -54,11 +54,11 @@ body {
   background: var(--surface);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--acai-800);
+  background: var(--Acae-800);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--acai-600);
+  background: var(--Acae-600);
 }
 
 /* Glass card */
@@ -85,7 +85,7 @@ body {
 }
 
 /* Input styles */
-.acai-input {
+.Acae-input {
   width: 100%;
   background: rgba(15, 10, 30, 0.6);
   border: 1px solid rgba(139, 71, 255, 0.2);
@@ -97,21 +97,21 @@ body {
   transition: all 0.2s ease;
   outline: none;
 }
-.acai-input:focus {
+.Acae-input:focus {
   border-color: rgba(139, 71, 255, 0.6);
   box-shadow: 0 0 0 3px rgba(139, 71, 255, 0.1);
   background: rgba(15, 10, 30, 0.8);
 }
-.acai-input::placeholder {
+.Acae-input::placeholder {
   color: rgba(240, 238, 255, 0.3);
 }
-.acai-input:disabled {
+.Acae-input:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
 /* Select */
-.acai-select {
+.Acae-select {
   width: 100%;
   background: rgba(15, 10, 30, 0.6);
   border: 1px solid rgba(139, 71, 255, 0.2);
@@ -125,17 +125,17 @@ body {
   cursor: pointer;
   appearance: none;
 }
-.acai-select:focus {
+.Acae-select:focus {
   border-color: rgba(139, 71, 255, 0.6);
   box-shadow: 0 0 0 3px rgba(139, 71, 255, 0.1);
 }
-.acai-select option {
+.Acae-select option {
   background: #160e2a;
   color: var(--foreground);
 }
 
 /* Textarea */
-.acai-textarea {
+.Acae-textarea {
   width: 100%;
   background: rgba(15, 10, 30, 0.6);
   border: 1px solid rgba(139, 71, 255, 0.2);
@@ -149,12 +149,12 @@ body {
   resize: vertical;
   min-height: 120px;
 }
-.acai-textarea:focus {
+.Acae-textarea:focus {
   border-color: rgba(139, 71, 255, 0.6);
   box-shadow: 0 0 0 3px rgba(139, 71, 255, 0.1);
   background: rgba(15, 10, 30, 0.8);
 }
-.acai-textarea::placeholder {
+.Acae-textarea::placeholder {
   color: rgba(240, 238, 255, 0.3);
 }
 
@@ -195,7 +195,7 @@ body {
   justify-content: center;
   gap: 0.5rem;
   background: rgba(139, 71, 255, 0.1);
-  color: var(--acai-300);
+  color: var(--Acae-300);
   border: 1px solid rgba(139, 71, 255, 0.25);
   border-radius: 10px;
   padding: 0.625rem 1.25rem;
@@ -208,7 +208,7 @@ body {
 .btn-secondary:hover:not(:disabled) {
   background: rgba(139, 71, 255, 0.2);
   border-color: rgba(139, 71, 255, 0.45);
-  color: var(--acai-200);
+  color: var(--Acae-200);
 }
 .btn-secondary:disabled {
   opacity: 0.5;
@@ -320,7 +320,7 @@ body {
 /* Area Badges */
 .badge-ti {
   background: rgba(139, 71, 255, 0.15);
-  color: var(--acai-300);
+  color: var(--Acae-300);
   border: 1px solid rgba(139, 71, 255, 0.3);
 }
 .badge-manutencao {
@@ -332,7 +332,7 @@ body {
 /* Role Badges */
 .badge-admin {
   background: rgba(139, 71, 255, 0.2);
-  color: var(--acai-300);
+  color: var(--Acae-300);
   border: 1px solid rgba(139, 71, 255, 0.4);
 }
 .badge-tecnico {
@@ -419,7 +419,7 @@ body {
 }
 .nav-item.active {
   background: rgba(139, 71, 255, 0.15);
-  color: var(--acai-300);
+  color: var(--Acae-300);
   border-color: rgba(139, 71, 255, 0.3);
 }
 
@@ -437,12 +437,12 @@ body {
 }
 
 /* Table */
-.acai-table {
+.Acae-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.875rem;
 }
-.acai-table th {
+.Acae-table th {
   padding: 0.75rem 1rem;
   text-align: left;
   font-size: 0.75rem;
@@ -452,18 +452,18 @@ body {
   letter-spacing: 0.05em;
   border-bottom: 1px solid rgba(139, 71, 255, 0.1);
 }
-.acai-table td {
+.Acae-table td {
   padding: 0.875rem 1rem;
   border-bottom: 1px solid rgba(139, 71, 255, 0.06);
   color: rgba(240, 238, 255, 0.8);
 }
-.acai-table tr:last-child td {
+.Acae-table tr:last-child td {
   border-bottom: none;
 }
-.acai-table tbody tr {
+.Acae-table tbody tr {
   transition: background 0.15s ease;
 }
-.acai-table tbody tr:hover {
+.Acae-table tbody tr:hover {
   background: rgba(139, 71, 255, 0.04);
   cursor: pointer;
 }

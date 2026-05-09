@@ -35,7 +35,7 @@ export function DashboardContent({ profile, recentTickets, stats }: Props) {
         {[
           {
             label: 'Total de Chamados', value: stats.total,
-            icon: <TicketIcon size={20} />, color: 'var(--acai-400)',
+            icon: <TicketIcon size={20} />, color: 'var(--Acae-400)',
             bg: 'rgba(139,71,255,0.1)'
           },
           {
@@ -84,7 +84,7 @@ export function DashboardContent({ profile, recentTickets, stats }: Props) {
                   background: 'linear-gradient(135deg, rgba(139,71,255,0.3), rgba(109,18,238,0.3))',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
-                  <Plus size={18} color="var(--acai-300)" />
+                  <Plus size={18} color="var(--Acae-300)" />
                 </div>
                 <div>
                   <div style={{ fontSize: '0.875rem', fontWeight: 600, color: '#f0eeff' }}>Abrir Chamado</div>
@@ -120,7 +120,7 @@ export function DashboardContent({ profile, recentTickets, stats }: Props) {
         <div className="animate-fade-in-up animate-delay-300">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
             <h2 style={{ fontSize: '1rem', fontWeight: 700, color: '#f0eeff' }}>Chamados Recentes</h2>
-            <Link href="/chamados" style={{ fontSize: '0.8rem', color: 'var(--acai-400)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>
+            <Link href="/chamados" style={{ fontSize: '0.8rem', color: 'var(--Acae-400)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>
               Ver todos <ArrowRight size={13} />
             </Link>
           </div>
@@ -135,7 +135,7 @@ export function DashboardContent({ profile, recentTickets, stats }: Props) {
                 </Link>
               </div>
             ) : (
-              <table className="acai-table">
+              <table className="Acae-table">
                 <thead>
                   <tr>
                     <th>Protocolo</th>
@@ -149,7 +149,7 @@ export function DashboardContent({ profile, recentTickets, stats }: Props) {
                   {recentTickets.map(ticket => (
                     <tr key={ticket.id} onClick={() => window.location.href = `/chamados/${ticket.id}`}>
                       <td>
-                        <span style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: 'var(--acai-300)' }}>
+                        <span style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: 'var(--Acae-300)' }}>
                           {ticket.protocol}
                         </span>
                       </td>

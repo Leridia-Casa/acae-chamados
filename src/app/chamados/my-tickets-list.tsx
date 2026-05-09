@@ -41,7 +41,7 @@ export function MyTicketsList({ tickets }: { tickets: Ticket[] }) {
           <Search size={15} style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', color: 'rgba(240,238,255,0.3)' }} />
           <input
             type="text"
-            className="acai-input"
+            className="Acae-input"
             style={{ paddingLeft: '2.2rem', padding: '0.5rem 0.875rem 0.5rem 2.2rem' }}
             placeholder="Buscar por título ou protocolo..."
             value={search}
@@ -49,14 +49,14 @@ export function MyTicketsList({ tickets }: { tickets: Ticket[] }) {
           />
         </div>
         <div style={{ position: 'relative' }}>
-          <select className="acai-select" style={{ padding: '0.5rem 2rem 0.5rem 0.875rem', minWidth: 140 }} value={filterArea} onChange={e => setFilterArea(e.target.value)}>
+          <select className="Acae-select" style={{ padding: '0.5rem 2rem 0.5rem 0.875rem', minWidth: 140 }} value={filterArea} onChange={e => setFilterArea(e.target.value)}>
             <option value="">Todas as áreas</option>
             <option value="TI">TI</option>
             <option value="Manutenção">Manutenção</option>
           </select>
         </div>
         <div style={{ position: 'relative' }}>
-          <select className="acai-select" style={{ padding: '0.5rem 2rem 0.5rem 0.875rem', minWidth: 160 }} value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
+          <select className="Acae-select" style={{ padding: '0.5rem 2rem 0.5rem 0.875rem', minWidth: 160 }} value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
             <option value="">Todos os status</option>
             <option value="Aberto">Aberto</option>
             <option value="Em Andamento">Em Andamento</option>
@@ -82,7 +82,7 @@ export function MyTicketsList({ tickets }: { tickets: Ticket[] }) {
             )}
           </div>
         ) : (
-          <table className="acai-table">
+          <table className="Acae-table">
             <thead>
               <tr>
                 <th>Protocolo</th>
@@ -97,7 +97,7 @@ export function MyTicketsList({ tickets }: { tickets: Ticket[] }) {
               {filtered.map(ticket => (
                 <tr key={ticket.id} onClick={() => window.location.href = `/chamados/${ticket.id}`}>
                   <td>
-                    <span style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: 'var(--acai-300)' }}>
+                    <span style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: 'var(--Acae-300)' }}>
                       {ticket.protocol}
                     </span>
                   </td>

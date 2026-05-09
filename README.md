@@ -1,4 +1,4 @@
-#  Acai — Sistema de Chamados
+#  Acae — Sistema de Chamados
 
 Sistema de abertura e acompanhamento de chamados para as equipes de **TI** e **Manutenção**, construído com Next.js 14 + Supabase.
 

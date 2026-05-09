@@ -10,7 +10,7 @@ export function createClient() {
       order: () => mockQuery,
       limit: () => mockQuery,
       neq: () => mockQuery,
-      single: async () => ({ data: { id: 'mock-id', full_name: 'Admin Teste', role: 'admin', email: 'admin@acai.com' }, error: null }),
+      single: async () => ({ data: { id: 'mock-id', full_name: 'Admin Teste', role: 'admin', email: 'admin@Acae.com' }, error: null }),
       select: () => mockQuery,
       insert: async () => ({ error: null }),
       upsert: async () => ({ error: null }),
@@ -19,7 +19,7 @@ export function createClient() {
 
     return {
       auth: {
-        getUser: async () => ({ data: { user: { id: 'mock-id', email: 'admin@acai.com' } }, error: null }),
+        getUser: async () => ({ data: { user: { id: 'mock-id', email: 'admin@Acae.com' } }, error: null }),
         signInWithPassword: async () => ({ data: { user: {} }, error: null }),
         signOut: async () => ({ error: null }),
       },

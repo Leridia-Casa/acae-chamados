@@ -65,7 +65,7 @@ export default function LoginPage() {
           }}>
             <Ticket size={26} color="#fff" />
           </div>
-          <h1 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#f0eeff', marginBottom: 6 }}>Acai</h1>
+          <h1 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#f0eeff', marginBottom: 6 }}>Acae</h1>
           <p style={{ color: 'rgba(240,238,255,0.45)', fontSize: '0.9rem' }}>Sistema de Chamados</p>
         </div>
 
@@ -96,7 +96,7 @@ export default function LoginPage() {
                 <input
                   id="email"
                   type="email"
-                  className="acai-input"
+                  className="Acae-input"
                   style={{ paddingLeft: '2.5rem' }}
                   placeholder="seu@email.com"
                   value={email}
@@ -117,7 +117,7 @@ export default function LoginPage() {
                 <input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
-                  className="acai-input"
+                  className="Acae-input"
                   style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}
                   placeholder="••••••••"
                   value={password}
