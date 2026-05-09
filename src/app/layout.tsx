@@ -8,8 +8,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Acae — Sistema de Chamados',
-  description: 'Sistema de abertura e acompanhamento de chamados da Acae',
+  title: 'Acaê — Sistema de Chamados',
+  description: 'Sistema de abertura e acompanhamento de chamados da Acaê',
 }
 
 export default function RootLayout({

@@ -94,7 +94,7 @@ export function TicketDetail({ ticket, currentProfile }: Props) {
             </h1>
             <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', marginBottom: 16 }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.8rem', color: 'rgba(240,238,255,0.4)' }}>
-                <span style={{ fontFamily: 'monospace', background: 'rgba(139,71,255,0.1)', border: '1px solid rgba(139,71,255,0.2)', borderRadius: 6, padding: '2px 8px', color: 'var(--Acae-300)', fontWeight: 600 }}>
+                <span style={{ fontFamily: 'monospace', background: 'rgba(139,71,255,0.1)', border: '1px solid rgba(139,71,255,0.2)', borderRadius: 6, padding: '2px 8px', color: 'var(--Acaê-300)', fontWeight: 600 }}>
                   {ticket.protocol}
                 </span>
               </span>
@@ -120,7 +120,7 @@ export function TicketDetail({ ticket, currentProfile }: Props) {
           {/* Comments */}
           <div className="glass-card animate-fade-in-up animate-delay-100" style={{ padding: '1.5rem' }}>
             <h2 style={{ fontSize: '1rem', fontWeight: 700, color: '#f0eeff', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
-              <MessageCircle size={18} color="var(--Acae-400)" />
+              <MessageCircle size={18} color="var(--Acaê-400)" />
               ComentÃ¡rios ({comments.filter(c => !c.is_internal || isTecnico).length})
             </h2>
 
@@ -222,7 +222,7 @@ export function TicketDetail({ ticket, currentProfile }: Props) {
                     style={{
                       justifyContent: 'flex-start', fontSize: '0.82rem',
                       background: currentStatus === status ? 'rgba(139,71,255,0.15)' : 'transparent',
-                      color: currentStatus === status ? 'var(--Acae-300)' : 'rgba(240,238,255,0.5)',
+                      color: currentStatus === status ? 'var(--Acaê-300)' : 'rgba(240,238,255,0.5)',
                       border: currentStatus === status ? '1px solid rgba(139,71,255,0.3)' : '1px solid transparent',
                       padding: '0.5rem 0.75rem',
                     }}

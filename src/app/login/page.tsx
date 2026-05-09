@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Ticket, Mail, Lock, Eye, EyeOff, AlertCircle } from 'lucide-react'
+import logo from './assets/logo.png';
 
 export default function LoginPage() {
   const router = useRouter()
@@ -55,18 +56,18 @@ export default function LoginPage() {
     }}>
       <div className="animate-fade-in-up" style={{ width: '100%', maxWidth: 420 }}>
         {/* Logo */}
-        <div style={{ textAlign: 'center', marginBottom: 40 }}>
+        <div style={{ textAlign: 'center', marginBottom: 15 }}>
           <div style={{
-            width: 56, height: 56, borderRadius: 16,
-            background: 'linear-gradient(135deg, #8b47ff, #6d12ee)',
+            width: 200, height: 200, borderRadius: 16,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             margin: '0 auto 16px',
-            boxShadow: '0 8px 32px rgba(139,71,255,0.4)',
           }}>
-            <Ticket size={26} color="#fff" />
+            <img src="/logo.png"
+              alt="logo.png"
+              width={250} height={250}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 16 }} />
           </div>
-          <h1 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#f0eeff', marginBottom: 6 }}>Acae</h1>
-          <p style={{ color: 'rgba(240,238,255,0.45)', fontSize: '0.9rem' }}>Sistema de Chamados</p>
+
         </div>
 
         {/* Card */}
@@ -97,7 +98,7 @@ export default function LoginPage() {
                   id="email"
                   type="email"
                   className="Acae-input"
-                  style={{ paddingLeft: '2.5rem' }}
+                  style={{ paddingLeft: '1.0rem' }}
                   placeholder="seu@email.com"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
@@ -118,7 +119,7 @@ export default function LoginPage() {
                   id="password"
                   type={showPassword ? 'text' : 'password'}
                   className="Acae-input"
-                  style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}
+                  style={{ paddingLeft: '1.0rem', paddingRight: '1.0rem' }}
                   placeholder="••••••••"
                   value={password}
                   onChange={e => setPassword(e.target.value)}

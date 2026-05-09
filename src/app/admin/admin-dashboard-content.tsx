@@ -33,12 +33,12 @@ export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTick
         display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 14, marginBottom: 20
       }}>
         {[
-          { label: 'Total Chamados', value: stats.total, icon: <TicketIcon size={18} />, color: 'var(--Acae-400)', bg: 'rgba(139,71,255,0.1)' },
+          { label: 'Total Chamados', value: stats.total, icon: <TicketIcon size={18} />, color: 'var(--AcaÍ-400)', bg: 'rgba(139,71,255,0.1)' },
           { label: 'Em Aberto', value: stats.aberto, icon: <AlertTriangle size={18} />, color: '#93c5fd', bg: 'rgba(59,130,246,0.1)' },
           { label: 'Em Andamento', value: stats.em_andamento, icon: <Loader size={18} />, color: '#fcd34d', bg: 'rgba(245,158,11,0.1)' },
           { label: 'Resolvidos', value: stats.resolvido, icon: <CheckCircle size={18} />, color: '#6ee7b7', bg: 'rgba(16,185,129,0.1)' },
           { label: 'Urgentes', value: stats.urgente, icon: <AlertTriangle size={18} />, color: '#fca5a5', bg: 'rgba(239,68,68,0.1)' },
-          { label: 'Usu√°rios', value: totalUsers, icon: <Users size={18} />, color: 'var(--Acae-300)', bg: 'rgba(139,71,255,0.08)' },
+          { label: 'Usu√°rios', value: totalUsers, icon: <Users size={18} />, color: 'var(--AcaÍ-300)', bg: 'rgba(139,71,255,0.08)' },
         ].map((s, i) => (
           <div key={i} className="stat-card">
             <div style={{ width: 36, height: 36, borderRadius: 9, background: s.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', color: s.color, marginBottom: 10 }}>
@@ -55,7 +55,7 @@ export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTick
         {/* Area breakdown */}
         <div className="glass-card" style={{ padding: '1.5rem' }}>
           <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#f0eeff', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
-            <TrendingUp size={16} color="var(--Acae-400)" />
+            <TrendingUp size={16} color="var(--AcaÍ-400)" />
             Chamados por √Årea
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -94,7 +94,7 @@ export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTick
                 padding: '0.875rem 1rem', textDecoration: 'none',
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <div style={{ width: 34, height: 34, borderRadius: 9, background: 'rgba(139,71,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--Acae-300)' }}>
+                  <div style={{ width: 34, height: 34, borderRadius: 9, background: 'rgba(139,71,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--AcaÍ-300)' }}>
                     {link.icon}
                   </div>
                   <div>
@@ -113,7 +113,7 @@ export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTick
       <div className="animate-fade-in-up animate-delay-300">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
           <h2 style={{ fontSize: '1rem', fontWeight: 700, color: '#f0eeff' }}>Chamados Recentes</h2>
-          <Link href="/admin/chamados" style={{ fontSize: '0.8rem', color: 'var(--Acae-400)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>
+          <Link href="/admin/chamados" style={{ fontSize: '0.8rem', color: 'var(--AcaÍ-400)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>
             Ver todos <ArrowRight size={13} />
           </Link>
         </div>
@@ -133,7 +133,7 @@ export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTick
             <tbody>
               {recentTickets.map(ticket => (
                 <tr key={ticket.id} onClick={() => window.location.href = `/chamados/${ticket.id}`}>
-                  <td><span style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--Acae-300)' }}>{ticket.protocol}</span></td>
+                  <td><span style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--AcaÍ-300)' }}>{ticket.protocol}</span></td>
                   <td style={{ fontWeight: 500, maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{ticket.title}</td>
                   <td style={{ fontSize: '0.82rem', color: 'rgba(240,238,255,0.55)' }}>{ticket.user?.full_name ?? '-'}</td>
                   <td><AreaBadge area={ticket.area!} /></td>

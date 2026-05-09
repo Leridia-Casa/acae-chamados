@@ -131,7 +131,7 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
                     </div>
                     <span style={{ fontWeight: 600, fontSize: '0.875rem' }}>{u.full_name}</span>
                     {u.id === currentUserId && (
-                      <span style={{ fontSize: '0.68rem', background: 'rgba(139,71,255,0.15)', color: 'var(--Acae-300)', border: '1px solid rgba(139,71,255,0.3)', borderRadius: 4, padding: '1px 6px' }}>Você</span>
+                      <span style={{ fontSize: '0.68rem', background: 'rgba(139,71,255,0.15)', color: 'var(--Aca�-300)', border: '1px solid rgba(139,71,255,0.3)', borderRadius: 4, padding: '1px 6px' }}>Você</span>
                     )}
                   </div>
                 </td>

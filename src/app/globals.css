@@ -5,17 +5,17 @@
   --foreground: #f0eeff;
 
   /* Acae brand â€” deep purple palette */
-  --Acae-50: #f5f0ff;
-  --Acae-100: #ede5ff;
-  --Acae-200: #ddd0ff;
-  --Acae-300: #c4a8ff;
-  --Acae-400: #a673ff;
-  --Acae-500: #8b47ff;
-  --Acae-600: #7c22ff;
-  --Acae-700: #6d12ee;
-  --Acae-800: #5c0ecb;
-  --Acae-900: #4c0da5;
-  --Acae-950: #2e0669;
+  --Acaê-50: #f5f0ff;
+  --Acaê-100: #ede5ff;
+  --Acaê-200: #ddd0ff;
+  --Acaê-300: #c4a8ff;
+  --Acaê-400: #a673ff;
+  --Acaê-500: #8b47ff;
+  --Acaê-600: #7c22ff;
+  --Acaê-700: #6d12ee;
+  --Acaê-800: #5c0ecb;
+  --Acaê-900: #4c0da5;
+  --Acaê-950: #2e0669;
 
   --glass-bg: rgba(139, 71, 255, 0.05);
   --glass-border: rgba(139, 71, 255, 0.15);
@@ -54,11 +54,11 @@ body {
   background: var(--surface);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--Acae-800);
+  background: var(--Acaê-800);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--Acae-600);
+  background: var(--Acaê-600);
 }
 
 /* Glass card */
@@ -195,7 +195,7 @@ body {
   justify-content: center;
   gap: 0.5rem;
   background: rgba(139, 71, 255, 0.1);
-  color: var(--Acae-300);
+  color: var(--Acaê-300);
   border: 1px solid rgba(139, 71, 255, 0.25);
   border-radius: 10px;
   padding: 0.625rem 1.25rem;
@@ -208,7 +208,7 @@ body {
 .btn-secondary:hover:not(:disabled) {
   background: rgba(139, 71, 255, 0.2);
   border-color: rgba(139, 71, 255, 0.45);
-  color: var(--Acae-200);
+  color: var(--Acaê-200);
 }
 .btn-secondary:disabled {
   opacity: 0.5;
@@ -320,7 +320,7 @@ body {
 /* Area Badges */
 .badge-ti {
   background: rgba(139, 71, 255, 0.15);
-  color: var(--Acae-300);
+  color: var(--Acaê-300);
   border: 1px solid rgba(139, 71, 255, 0.3);
 }
 .badge-manutencao {
@@ -332,7 +332,7 @@ body {
 /* Role Badges */
 .badge-admin {
   background: rgba(139, 71, 255, 0.2);
-  color: var(--Acae-300);
+  color: var(--Acaê-300);
   border: 1px solid rgba(139, 71, 255, 0.4);
 }
 .badge-tecnico {
@@ -419,7 +419,7 @@ body {
 }
 .nav-item.active {
   background: rgba(139, 71, 255, 0.15);
-  color: var(--Acae-300);
+  color: var(--Acaê-300);
   border-color: rgba(139, 71, 255, 0.3);
 }
 

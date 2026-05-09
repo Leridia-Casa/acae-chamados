@@ -115,7 +115,7 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
                   background: ticket.priority === 'Urgente' && ticket.status !== 'Resolvido' && ticket.status !== 'Fechado'
                     ? 'rgba(239,68,68,0.03)' : undefined
                 }}>
-                  <td><span style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--Acae-300)' }}>{ticket.protocol}</span></td>
+                  <td><span style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--Acaê-300)' }}>{ticket.protocol}</span></td>
                   <td style={{ fontWeight: 500, maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{ticket.title}</td>
                   <td style={{ fontSize: '0.82rem', color: 'rgba(240,238,255,0.55)' }}>{ticket.user?.full_name ?? 'â€”'}</td>
                   <td><AreaBadge area={ticket.area!} /></td>

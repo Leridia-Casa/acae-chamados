@@ -21,10 +21,10 @@ export default function Home() {
             }}>
               <Ticket size={18} color="#fff" />
             </div>
-            <span style={{ fontWeight: 700, fontSize: '1.1rem', color: '#f0eeff' }}>Acae</span>
+            <span style={{ fontWeight: 700, fontSize: '1.1rem', color: '#f0eeff' }}>Acaê</span>
             <span style={{
               marginLeft: 6, fontSize: '0.7rem', fontWeight: 600,
-              background: 'rgba(139,71,255,0.15)', color: 'var(--Acae-300)',
+              background: 'rgba(139,71,255,0.15)', color: 'var(--Acaê-300)',
               border: '1px solid rgba(139,71,255,0.3)', borderRadius: 6, padding: '2px 8px',
             }}>Chamados</span>
           </div>
@@ -46,7 +46,7 @@ export default function Home() {
             borderRadius: 999, padding: '6px 16px', marginBottom: 32,
           }}>
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#8b47ff', boxShadow: '0 0 8px #8b47ff' }}></span>
-            <span style={{ fontSize: '0.8rem', color: 'var(--Acae-300)', fontWeight: 600 }}>Sistema em operação</span>
+            <span style={{ fontSize: '0.8rem', color: 'var(--Acaê-300)', fontWeight: 600 }}>Sistema em operação</span>
           </div>
 
           <h1 style={{
@@ -62,7 +62,7 @@ export default function Home() {
           </h1>
 
           <p style={{ fontSize: '1.1rem', color: 'rgba(240,238,255,0.6)', lineHeight: 1.7, marginBottom: 40, maxWidth: 560, margin: '0 auto 40px' }}>
-            Abra chamados para as equipes de <strong style={{ color: 'var(--Acae-300)' }}>TI</strong> e{' '}
+            Abra chamados para as equipes de <strong style={{ color: 'var(--Acaê-300)' }}>TI</strong> e{' '}
             <strong style={{ color: '#7dd3fc' }}>Manutenção</strong> de forma rápida e acompanhe o status em tempo real.
           </p>
 
@@ -89,7 +89,7 @@ export default function Home() {
             { icon: <Shield size={20} />, value: '24/7', label: 'Suporte contínuo' },
           ].map((stat, i) => (
             <div key={i} className="stat-card" style={{ textAlign: 'center', padding: '1.5rem 1rem' }}>
-              <div style={{ color: 'var(--Acae-400)', marginBottom: 8, display: 'flex', justifyContent: 'center' }}>{stat.icon}</div>
+              <div style={{ color: 'var(--Acaê-400)', marginBottom: 8, display: 'flex', justifyContent: 'center' }}>{stat.icon}</div>
               <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#f0eeff', marginBottom: 4 }}>{stat.value}</div>
               <div style={{ fontSize: '0.78rem', color: 'rgba(240,238,255,0.45)', fontWeight: 500 }}>{stat.label}</div>
             </div>
@@ -117,7 +117,7 @@ export default function Home() {
               border: '1px solid rgba(139,71,255,0.3)',
               display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20,
             }}>
-              <Monitor size={24} color="var(--Acae-300)" />
+              <Monitor size={24} color="var(--Acaê-300)" />
             </div>
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#f0eeff', marginBottom: 12 }}>
               Tecnologia da Informação
@@ -128,7 +128,7 @@ export default function Home() {
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
               {['Computadores e periféricos', 'Sistemas e aplicativos', 'Rede e conectividade', 'E-mail e acesso'].map(item => (
                 <li key={item} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.85rem', color: 'rgba(240,238,255,0.6)' }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--Acae-500)', flexShrink: 0 }}></span>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--Acaê-500)', flexShrink: 0 }}></span>
                   {item}
                 </li>
               ))}

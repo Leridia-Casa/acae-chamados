@@ -98,7 +98,7 @@ export default function NovoChamadoPage() {
               borderRadius: 12, padding: '1rem', marginBottom: 28,
             }}>
               <p style={{ fontSize: '0.78rem', color: 'rgba(240,238,255,0.45)', marginBottom: 4 }}>NÚMERO DO PROTOCOLO</p>
-              <p style={{ fontFamily: 'monospace', fontSize: '1.3rem', fontWeight: 700, color: 'var(--Acae-300)', letterSpacing: '0.05em' }}>
+              <p style={{ fontFamily: 'monospace', fontSize: '1.3rem', fontWeight: 700, color: 'var(--Aca�-300)', letterSpacing: '0.05em' }}>
                 {protocol}
               </p>
             </div>
@@ -143,7 +143,7 @@ export default function NovoChamadoPage() {
             <label className="form-label" style={{ marginBottom: 12 }}>Área de Atendimento *</label>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
               {([
-                { value: 'TI', label: 'Tecnologia da Informação', desc: 'Computadores, sistemas, rede', icon: <Monitor size={22} />, color: 'var(--Acae-400)' },
+                { value: 'TI', label: 'Tecnologia da Informação', desc: 'Computadores, sistemas, rede', icon: <Monitor size={22} />, color: 'var(--Aca�-400)' },
                 { value: 'Manutenção', label: 'Manutenção', desc: 'Elétrica, reparos, infraestrutura', icon: <Wrench size={22} />, color: '#38bdf8' },
               ] as const).map(area => (
                 <button
@@ -198,7 +198,7 @@ export default function NovoChamadoPage() {
                   <option value="Baixa">Baixa</option>
                   <option value="Média">Média</option>
                   <option value="Alta">Alta</option>
-                  <option value="Urgente">🔴 Urgente</option>
+                  <option value="Urgente">Urgente</option>
                 </select>
                 <ChevronDown size={14} style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', color: 'rgba(240,238,255,0.4)', pointerEvents: 'none' }} />
               </div>

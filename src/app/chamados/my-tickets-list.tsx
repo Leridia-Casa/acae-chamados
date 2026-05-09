@@ -97,7 +97,7 @@ export function MyTicketsList({ tickets }: { tickets: Ticket[] }) {
               {filtered.map(ticket => (
                 <tr key={ticket.id} onClick={() => window.location.href = `/chamados/${ticket.id}`}>
                   <td>
-                    <span style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: 'var(--Acae-300)' }}>
+                    <span style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: 'var(--Acaê-300)' }}>
                       {ticket.protocol}
                     </span>
                   </td>
