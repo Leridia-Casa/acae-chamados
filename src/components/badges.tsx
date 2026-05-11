@@ -1,4 +1,4 @@
-﻿import { TicketStatus, TicketPriority, TicketArea, UserRole } from '@/lib/types'
+import { TicketStatus, TicketPriority, TicketArea, UserRole } from '@/lib/types'
 import { Circle } from 'lucide-react'
 
 const statusConfig: Record<TicketStatus, { label: string; className: string; dot: string }> = {
@@ -13,18 +13,18 @@ const priorityConfig: Record<TicketPriority, { label: string; className: string 
   'Baixa': { label: 'Baixa', className: 'badge-baixa' },
   'Média': { label: 'Média', className: 'badge-media' },
   'Alta': { label: 'Alta', className: 'badge-alta' },
-  'Urgente': { label: 'ðŸ”´ Urgente', className: 'badge-urgente' },
+  'Urgente': { label: 'Urgente', className: 'badge-urgente' },
 }
 
 const areaConfig: Record<TicketArea, { label: string; className: string }> = {
-  'TI': { label: 'ðŸ’» TI', className: 'badge-ti' },
-  'Manutenção': { label: '🔧 Manutenção', className: 'badge-manutencao' },
+  'TI': { label: 'TI', className: 'badge-ti' },
+  'Manutenção': { label: 'Manutenção', className: 'badge-manutencao' },
 }
 
 const roleConfig: Record<UserRole, { label: string; className: string }> = {
-  'admin': { label: '👑 Admin', className: 'badge-admin' },
-  'tecnico': { label: '🔧 Técnico', className: 'badge-tecnico' },
-  'usuario': { label: '👤 Usuário', className: 'badge-usuario' },
+  'admin': { label: 'Admin', className: 'badge-admin' },
+  'tecnico': { label: 'Técnico', className: 'badge-tecnico' },
+  'usuario': { label: 'Usuário', className: 'badge-usuario' },
 }
 
 export function StatusBadge({ status }: { status: TicketStatus }) {

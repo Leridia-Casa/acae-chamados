@@ -5,7 +5,6 @@ import { createClient } from '@/lib/supabase/client'
 import { AppShell } from '@/components/app-shell'
 import { AreaBadge, PriorityBadge } from '@/components/badges'
 import {
-
   Send, AlertCircle, CheckCircle, FileText, MapPin,
   Monitor, Wrench, ChevronDown
 } from 'lucide-react'

@@ -79,12 +79,21 @@ export function AppShell({ children }: AppShellProps) {
         <div style={{ padding: '1.25rem 1rem', borderBottom: '1px solid rgba(139,71,255,0.1)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div style={{
-              width: 34, height: 34, borderRadius: 10,
-              background: 'linear-gradient(135deg, #8b47ff, #6d12ee)',
+              width: 42, height: 42,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(139,71,255,0.4)', flexShrink: 0,
+              flexShrink: 0,
+              overflow: 'hidden',
             }}>
-              <Ticket size={16} color="#fff" />
+              <img 
+                src="/logo.png" 
+                alt="Acaê" 
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'contain',
+                  filter: 'brightness(1.2) contrast(1.1)' 
+                }} 
+              />
             </div>
             <div>
               <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#f0eeff', lineHeight: 1 }}>Acaê</div>
@@ -153,7 +162,7 @@ export function AppShell({ children }: AppShellProps) {
                 {profile.email}
               </div>
               <span className={`badge badge-${profile.role}`} style={{ fontSize: '0.65rem' }}>
-                {profile.role === 'admin' ? '👑 Admin' : profile.role === 'tecnico' ? '🔧 Técnico' : '👤 Usuário'}
+                {profile.role === 'admin' ? 'Admin' : profile.role === 'tecnico' ? 'Técnico' : 'Usuário'}
               </span>
             </div>
           )}

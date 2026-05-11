@@ -14,12 +14,20 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div style={{
-              width: 36, height: 36, borderRadius: 10,
-              background: 'linear-gradient(135deg, #8b47ff, #6d12ee)',
+              width: 44, height: 44,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 4px 16px rgba(139,71,255,0.4)'
+              overflow: 'hidden'
             }}>
-              <Ticket size={18} color="#fff" />
+              <img 
+                src="/logo.png" 
+                alt="Acaê" 
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'contain',
+                  filter: 'brightness(1.2) contrast(1.1)'
+                }} 
+              />
             </div>
             <span style={{ fontWeight: 700, fontSize: '1.1rem', color: '#f0eeff' }}>Acaê</span>
             <span style={{
