@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import Link from 'next/link'
 import { DashboardStats, Ticket } from '@/lib/types'
 import { StatusBadge, PriorityBadge, AreaBadge } from '@/components/badges'
@@ -16,7 +16,7 @@ interface Props {
 
 export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTickets }: Props) {
   return (
-    <div style={{ padding: '2rem' }}>
+    <div style={{ padding: 'min(2rem, 1rem)' }}>
       {/* Header */}
       <div className="animate-fade-in-up" style={{ marginBottom: 32 }}>
         <h1 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#f0eeff', marginBottom: 4 }}>
@@ -48,7 +48,12 @@ export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTick
         ))}
       </div>
       {/* Area Breakdown + Quick Links */}
-      <div className="animate-fade-in-up animate-delay-200" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 24 }}>
+      <div className="animate-fade-in-up animate-delay-200" style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+        gap: 16, 
+        marginBottom: 24 
+      }}>
         {/* Area breakdown */}
         <div className="glass-card" style={{ padding: '1.5rem' }}>
           <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#f0eeff', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -112,35 +117,37 @@ export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTick
             Ver todos <ArrowRight size={13} />
           </Link>
         </div>
-        <div className="glass-card" style={{ overflow: 'hidden' }}>
-          <table className="Acaê-table">
-            <thead>
-              <tr>
-                <th>Protocolo</th>
-                <th>Título</th>
-                <th>Solicitante</th>
-                <th>Área</th>
-                <th>Prioridade</th>
-                <th>Status</th>
-                <th>Data</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recentTickets.map(ticket => (
-                <tr key={ticket.id} onClick={() => window.location.href = `/chamados/${ticket.id}`}>
-                  <td><span style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--Acaê-300)' }}>{ticket.protocol}</span></td>
-                  <td style={{ fontWeight: 500, maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{ticket.title}</td>
-                  <td style={{ fontSize: '0.82rem', color: 'rgba(240,238,255,0.55)' }}>{ticket.user?.full_name ?? '-'}</td>
-                  <td><AreaBadge area={ticket.area!} /></td>
-                  <td><PriorityBadge priority={ticket.priority!} /></td>
-                  <td><StatusBadge status={ticket.status!} /></td>
-                  <td style={{ fontSize: '0.78rem', color: 'rgba(240,238,255,0.35)' }}>
-                    {ticket.created_at ? new Date(ticket.created_at).toLocaleDateString('pt-BR') : '-'}
-                  </td>
+        <div className="glass-card table-container" style={{ overflow: 'hidden' }}>
+          <div className="table-container">
+            <table className="Acaê-table">
+              <thead>
+                <tr>
+                  <th>Protocolo</th>
+                  <th>Título</th>
+                  <th>Solicitante</th>
+                  <th>Área</th>
+                  <th>Prioridade</th>
+                  <th>Status</th>
+                  <th>Data</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {recentTickets.map(ticket => (
+                  <tr key={ticket.id} onClick={() => window.location.href = `/chamados/${ticket.id}`}>
+                    <td><span style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--Acaê-300)' }}>{ticket.protocol}</span></td>
+                    <td style={{ fontWeight: 500, minWidth: 180 }}>{ticket.title}</td>
+                    <td style={{ fontSize: '0.82rem', color: 'rgba(240,238,255,0.55)', whiteSpace: 'nowrap' }}>{ticket.user?.full_name ?? '-'}</td>
+                    <td><AreaBadge area={ticket.area!} /></td>
+                    <td><PriorityBadge priority={ticket.priority!} /></td>
+                    <td><StatusBadge status={ticket.status!} /></td>
+                    <td style={{ fontSize: '0.78rem', color: 'rgba(240,238,255,0.35)', whiteSpace: 'nowrap' }}>
+                      {ticket.created_at ? new Date(ticket.created_at).toLocaleDateString('pt-BR') : '-'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 :root {
   --background: #0a0a0f;
   --foreground: #f0eeff;
@@ -20,6 +20,8 @@
   --surface: #0f0a1e;
   --surface-2: #160e2a;
   --surface-3: #1e1538;
+  --header-height: 64px;
+  --sidebar-width: 240px;
 }
 * {
   box-sizing: border-box;
@@ -460,4 +462,46 @@ body {
   background-size: 1000px 100%;
   animation: shimmer 2s infinite;
   border-radius: 8px;
+}
+
+/* Mobile Responsiveness Utilities */
+@media (max-width: 1024px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+  .Acaê-table {
+    min-width: 600px;
+  }
+  
+  .glass-card {
+    padding: 1.25rem !important;
+  }
+  
+  h1 {
+    font-size: 1.75rem !important;
+  }
+}
+
+/* Utility to hide horizontal scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }

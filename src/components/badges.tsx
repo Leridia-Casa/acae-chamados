@@ -3,10 +3,8 @@ import { Circle } from 'lucide-react'
 
 const statusConfig: Record<TicketStatus, { label: string; className: string; dot: string }> = {
   'Aberto': { label: 'Aberto', className: 'badge-aberto', dot: '#93c5fd' },
-  'Em Andamento': { label: 'Em Andamento', className: 'badge-em_andamento', dot: '#fcd34d' },
-  'Aguardando': { label: 'Aguardando', className: 'badge-aguardando', dot: '#c4b5fd' },
+  'Aguardando Retorno': { label: 'Ag. Retorno', className: 'badge-aguardando', dot: '#f472b6' },
   'Resolvido': { label: 'Resolvido', className: 'badge-resolvido', dot: '#6ee7b7' },
-  'Fechado': { label: 'Fechado', className: 'badge-fechado', dot: '#9ca3af' },
 }
 
 const priorityConfig: Record<TicketPriority, { label: string; className: string }> = {

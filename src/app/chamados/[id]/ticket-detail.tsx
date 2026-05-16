@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
@@ -14,7 +14,7 @@ interface Props {
   currentProfile: Profile | null
 }
 
-const STATUS_OPTIONS = ['Aberto', 'Em Andamento', 'Aguardando', 'Resolvido', 'Fechado'] as const
+const STATUS_OPTIONS = ['Aberto', 'Aguardando Retorno', 'Resolvido'] as const
 
 export function TicketDetail({ ticket, currentProfile }: Props) {
   const router = useRouter()
@@ -156,7 +156,7 @@ export function TicketDetail({ ticket, currentProfile }: Props) {
               )}
             </div>
             {/* Comment form */}
-            {(currentStatus !== 'Fechado') && (
+            {(currentStatus !== 'Resolvido') && (
               <form onSubmit={handleComment}>
                 <textarea
                   className="Acaê-textarea"

@@ -1,4 +1,4 @@
-﻿import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { AppShell } from '@/components/app-shell'
 import { DashboardContent } from './dashboard-content'
@@ -28,11 +28,11 @@ export default async function DashboardPage() {
     .select('*', { count: 'exact', head: true })
     .eq('user_id', user.id)
     .eq('status', 'Aberto')
-  const { count: progressCount } = await supabase
+  const { count: waitingCount } = await supabase
     .from('tickets')
     .select('*', { count: 'exact', head: true })
     .eq('user_id', user.id)
-    .eq('status', 'Em Andamento')
+    .eq('status', 'Aguardando Retorno')
   const { count: resolvedCount } = await supabase
     .from('tickets')
     .select('*', { count: 'exact', head: true })
@@ -46,7 +46,7 @@ export default async function DashboardPage() {
         stats={{
           total: totalCount || 0,
           aberto: openCount || 0,
-          em_andamento: progressCount || 0,
+          aguardando_retorno: waitingCount || 0,
           resolvido: resolvedCount || 0,
           urgente: 0,
         }}

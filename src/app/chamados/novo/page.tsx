@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
@@ -67,39 +67,39 @@ export default function NovoChamadoPage() {
   if (success) {
     return (
       <AppShell>
-        <div style={{ padding: '2rem', maxWidth: 600, margin: '0 auto', paddingTop: '4rem' }}>
-          <div className="glass-card animate-fade-in-up" style={{ padding: '3rem', textAlign: 'center' }}>
+        <div style={{ padding: '1rem', maxWidth: 600, margin: '0 auto', paddingTop: 'min(4rem, 10vh)' }}>
+          <div className="glass-card animate-fade-in-up" style={{ padding: 'min(3rem, 1.5rem)', textAlign: 'center' }}>
             <div style={{
-              width: 64, height: 64, borderRadius: '50%',
+              width: 56, height: 56, borderRadius: '50%',
               background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(16,185,129,0.3)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              margin: '0 auto 24px',
+              margin: '0 auto 20px',
             }}>
-              <CheckCircle size={32} color="#6ee7b7" />
+              <CheckCircle size={28} color="#6ee7b7" />
             </div>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#f0eeff', marginBottom: 8 }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f0eeff', marginBottom: 8 }}>
               Chamado Aberto!
             </h2>
-            <p style={{ color: 'rgba(240,238,255,0.55)', marginBottom: 24, fontSize: '0.9rem' }}>
+            <p style={{ color: 'rgba(240,238,255,0.55)', marginBottom: 20, fontSize: '0.85rem' }}>
               Seu chamado foi registrado com sucesso. A equipe entrará em contato em breve.
             </p>
             <div style={{
               background: 'rgba(139,71,255,0.1)', border: '1px solid rgba(139,71,255,0.25)',
-              borderRadius: 12, padding: '1rem', marginBottom: 28,
+              borderRadius: 12, padding: '1rem', marginBottom: 24,
             }}>
-              <p style={{ fontSize: '0.78rem', color: 'rgba(240,238,255,0.45)', marginBottom: 4 }}>NÃšMERO DO PROTOCOLO</p>
-              <p style={{ fontFamily: 'monospace', fontSize: '1.3rem', fontWeight: 700, color: 'var(--Acaê-300)', letterSpacing: '0.05em' }}>
+              <p style={{ fontSize: '0.7rem', color: 'rgba(240,238,255,0.45)', marginBottom: 4 }}>NÚMERO DO PROTOCOLO</p>
+              <p style={{ fontFamily: 'monospace', fontSize: '1.1rem', fontWeight: 700, color: 'var(--Acaê-300)', letterSpacing: '0.05em' }}>
                 {protocol}
               </p>
             </div>
             <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <button className="btn-secondary" onClick={() => {
+              <button className="btn-secondary" style={{ flex: 1, minWidth: 200 }} onClick={() => {
                 setSuccess(false)
                 setForm({ title: '', area: '', priority: 'Média', location: '', description: '' })
               }}>
                 Abrir outro chamado
               </button>
-              <button className="btn-primary" onClick={() => router.push('/chamados')}>
+              <button className="btn-primary" style={{ flex: 1, minWidth: 200 }} onClick={() => router.push('/chamados')}>
                 Ver meus chamados
               </button>
             </div>
@@ -126,9 +126,9 @@ export default function NovoChamadoPage() {
         )}
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           {/* Área */}
-          <div className="glass-card animate-fade-in-up animate-delay-100" style={{ padding: '1.5rem' }}>
+          <div className="glass-card animate-fade-in-up animate-delay-100" style={{ padding: '1.25rem' }}>
             <label className="form-label" style={{ marginBottom: 12 }}>Área de Atendimento *</label>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
               {([
                 { value: 'TI', label: 'Tecnologia da Informação', desc: 'Computadores, sistemas, rede', icon: <Monitor size={22} />, color: 'var(--Acaê-400)' },
                 { value: 'Manutenção', label: 'Manutenção', desc: 'Elétrica, reparos, infraestrutura', icon: <Wrench size={22} />, color: '#38bdf8' },
@@ -157,7 +157,12 @@ export default function NovoChamadoPage() {
             </div>
           </div>
           {/* Title + Priority */}
-          <div className="glass-card animate-fade-in-up animate-delay-200" style={{ padding: '1.5rem', display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 16 }}>
+          <div className="glass-card animate-fade-in-up animate-delay-200" style={{ 
+            padding: '1.25rem', 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
+            gap: 16 
+          }}>
             <div>
               <label className="form-label">Assunto / Título *</label>
               <input
@@ -229,11 +234,12 @@ export default function NovoChamadoPage() {
             </div>
           </div>
           {/* Submit */}
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'flex-end' }}>
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'flex-end', flexWrap: 'wrap-reverse' }}>
             <button
               type="button"
               className="btn-secondary"
               onClick={() => router.back()}
+              style={{ flex: 1, minWidth: 120 }}
             >
               Cancelar
             </button>
@@ -242,7 +248,7 @@ export default function NovoChamadoPage() {
               type="submit"
               className="btn-primary"
               disabled={loading || !form.area}
-              style={{ minWidth: 160 }}
+              style={{ flex: 2, minWidth: 180 }}
             >
               {loading ? (
                 <>

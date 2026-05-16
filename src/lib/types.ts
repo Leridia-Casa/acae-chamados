@@ -1,4 +1,4 @@
-﻿// Supabase client types for the Acaê ticket system
+// Supabase client types for the Acaê ticket system
 
 export type UserRole = 'admin' | 'tecnico' | 'usuario'
 
@@ -6,10 +6,8 @@ export type TicketArea = 'TI' | 'Manutenção'
 
 export type TicketStatus =
   | 'Aberto'
-  | 'Em Andamento'
-  | 'Aguardando'
+  | 'Aguardando Retorno'
   | 'Resolvido'
-  | 'Fechado'
 
 export type TicketPriority = 'Baixa' | 'Média' | 'Alta' | 'Urgente'
 
@@ -56,7 +54,7 @@ export interface TicketComment {
 export interface DashboardStats {
   total: number
   aberto: number
-  em_andamento: number
+  aguardando_retorno: number
   resolvido: number
   urgente: number
 }

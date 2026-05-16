@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import { useState } from 'react'
 import Link from 'next/link'
 import { Ticket } from '@/lib/types'
@@ -17,12 +17,22 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
   const [filterPriority, setFilterPriority] = useState('')
   const filtered = tickets.filter(t => {
     const q = search.toLowerCase()
+    const isFinished = t.status === 'Resolvido'
+    const matchProtocol = search !== '' && t.protocol?.toLowerCase().includes(q)
+    
+    // Protocolo sempre ganha do filtro de escondido
+    if (matchProtocol) return true
+
     const matchSearch = !search ||
       t.title?.toLowerCase().includes(q) ||
-      t.protocol?.toLowerCase().includes(q) ||
       t.user?.full_name.toLowerCase().includes(q)
+    
+    const matchStatus = filterStatus === ''
+      ? !isFinished
+      : t.status === filterStatus
+
     return matchSearch &&
-      (!filterStatus || t.status === filterStatus) &&
+      matchStatus &&
       (!filterArea || t.area === filterArea) &&
       (!filterPriority || t.priority === filterPriority)
   })
@@ -70,10 +80,8 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
         <select className="Acaê-select" style={{ padding: '0.5rem 1.5rem 0.5rem 0.875rem', minWidth: 150 }} value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
           <option value="">Todos os status</option>
           <option value="Aberto">Aberto</option>
-          <option value="Em Andamento">Em Andamento</option>
-          <option value="Aguardando">Aguardando</option>
+          <option value="Aguardando Retorno">Aguardando Retorno</option>
           <option value="Resolvido">Resolvido</option>
-          <option value="Fechado">Fechado</option>
         </select>
         {(search || filterStatus || filterArea || filterPriority) && (
           <button className="btn-ghost" onClick={() => { setSearch(''); setFilterStatus(''); setFilterArea(''); setFilterPriority('') }} style={{ fontSize: '0.8rem', padding: '0.5rem 0.75rem', whiteSpace: 'nowrap' }}>
@@ -106,7 +114,7 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
             ) : (
               filtered.map(ticket => (
                 <tr key={ticket.id} style={{
-                  background: ticket.priority === 'Urgente' && ticket.status !== 'Resolvido' && ticket.status !== 'Fechado'
+                  background: ticket.priority === 'Urgente' && ticket.status !== 'Resolvido'
                     ? 'rgba(239,68,68,0.03)' : undefined
                 }}>
                   <td><span style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'var(--Acaê-300)' }}>{ticket.protocol}</span></td>
