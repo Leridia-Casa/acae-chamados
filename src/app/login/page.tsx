@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
@@ -86,7 +86,7 @@ export default function LoginPage() {
                   id="email"
                   type="email"
                   className="Acaê-input"
-                  style={{ paddingLeft: '1.0rem' }}
+                  style={{ paddingLeft: '2.5rem' }}
                   placeholder="seu@email.com"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
@@ -106,7 +106,7 @@ export default function LoginPage() {
                   id="password"
                   type={showPassword ? 'text' : 'password'}
                   className="Acaê-input"
-                  style={{ paddingLeft: '1.0rem', paddingRight: '1.0rem' }}
+                  style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}
                   placeholder="••••••••"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
