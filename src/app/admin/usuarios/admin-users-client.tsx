@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Profile, UserRole, TicketArea } from '@/lib/types'
@@ -211,7 +211,10 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
                     <select id="new-user-area" className="Acaê-select" value={newUser.area} onChange={e => setNewUser(u => ({ ...u, area: e.target.value as TicketArea }))}>
                       <option value="">Selecione...</option>
                       <option value="TI">TI</option>
-                      <option value="Manutenção">Manutenção</option>
+                      <option value="Manutenção Predial">Manutenção Predial</option>
+                      <option value="Limpeza">Limpeza</option>
+                      <option value="Coordenação">Coordenação</option>
+                      <option value="Administrativo">Administrativo</option>
                     </select>
                   </div>
                 )}

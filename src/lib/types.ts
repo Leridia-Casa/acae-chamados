@@ -2,7 +2,12 @@
 
 export type UserRole = 'admin' | 'tecnico' | 'usuario'
 
-export type TicketArea = 'TI' | 'Manutenção'
+export type TicketArea =
+  | 'TI'
+  | 'Manutenção Predial'
+  | 'Limpeza'
+  | 'Coordenação'
+  | 'Administrativo'
 
 export type TicketStatus =
   | 'Aberto'
@@ -30,6 +35,7 @@ export interface Ticket {
   priority: TicketPriority
   status: TicketStatus
   location: string
+  image_url?: string
   user_id: string
   assigned_to?: string
   created_at: string

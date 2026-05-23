@@ -107,6 +107,14 @@ export function TicketDetail({ ticket, currentProfile }: Props) {
                 {ticket.description}
               </p>
             </div>
+            {ticket.image_url && (
+              <div style={{ marginTop: 24 }}>
+                <p style={{ fontSize: '0.8rem', fontWeight: 700, color: 'rgba(240,238,255,0.35)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 10 }}>Anexo</p>
+                <a href={ticket.image_url} target="_blank" rel="noreferrer">
+                  <img src={ticket.image_url} alt="Anexo do chamado" style={{ maxWidth: '100%', maxHeight: 400, borderRadius: 8, border: '1px solid rgba(139,71,255,0.1)' }} />
+                </a>
+              </div>
+            )}
           </div>
           {/* Comments */}
           <div className="glass-card animate-fade-in-up animate-delay-100" style={{ padding: '1.5rem' }}>

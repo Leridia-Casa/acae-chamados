@@ -67,7 +67,10 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
           <select className="Acaê-select" style={{ padding: '0.5rem 1.5rem 0.5rem 0.875rem', minWidth: 130 }} value={filterArea} onChange={e => setFilterArea(e.target.value)}>
             <option value="">Todas as áreas</option>
             <option value="TI">TI</option>
-            <option value="Manutenção">Manutenção</option>
+            <option value="Manutenção Predial">Manutenção Predial</option>
+            <option value="Limpeza">Limpeza</option>
+            <option value="Coordenação">Coordenação</option>
+            <option value="Administrativo">Administrativo</option>
           </select>
         )}
         <select className="Acaê-select" style={{ padding: '0.5rem 1.5rem 0.5rem 0.875rem', minWidth: 130 }} value={filterPriority} onChange={e => setFilterPriority(e.target.value)}>

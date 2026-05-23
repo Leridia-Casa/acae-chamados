@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS public.profiles (
   full_name   TEXT        NOT NULL,
   role        TEXT        NOT NULL DEFAULT 'usuario'
                           CHECK (role IN ('admin', 'tecnico', 'usuario')),
-  area        TEXT        CHECK (area IN ('TI', 'Manutenção')),
+  area        TEXT        CHECK (area IN ('TI', 'Manutenção Predial', 'Limpeza', 'Coordenação', 'Administrativo')),
   -- 'area' obrigatória apenas para técnicos (validação no app)
   created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
@@ -56,12 +56,13 @@ CREATE TABLE IF NOT EXISTS public.tickets (
   protocol     TEXT        NOT NULL UNIQUE,
   title        TEXT        NOT NULL,
   description  TEXT        NOT NULL,
-  area         TEXT        NOT NULL CHECK (area IN ('TI', 'Manutenção')),
+  area         TEXT        NOT NULL CHECK (area IN ('TI', 'Manutenção Predial', 'Limpeza', 'Coordenação', 'Administrativo')),
   priority     TEXT        NOT NULL DEFAULT 'Média'
                            CHECK (priority IN ('Baixa', 'Média', 'Alta', 'Urgente')),
   status       TEXT        NOT NULL DEFAULT 'Aberto'
                            CHECK (status IN ('Aberto', 'Em Andamento', 'Aguardando', 'Resolvido', 'Fechado')),
   location     TEXT,                                -- Ex: "Bloco A, Sala 201"
+  image_url    TEXT,                                -- Anexo opcional de imagem
   user_id      UUID        NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
   assigned_to  UUID        REFERENCES public.profiles(id) ON DELETE SET NULL,
   created_at   TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -75,6 +76,7 @@ COMMENT ON COLUMN public.tickets.area          IS 'Equipe destino: TI | Manuten�
 COMMENT ON COLUMN public.tickets.priority      IS 'Prioridade: Baixa | Média | Alta | Urgente';
 COMMENT ON COLUMN public.tickets.status        IS 'Status: Aberto | Em Andamento | Aguardando | Resolvido | Fechado';
 COMMENT ON COLUMN public.tickets.location      IS 'Localização física do problema (opcional)';
+COMMENT ON COLUMN public.tickets.image_url     IS 'URL da imagem anexada ao chamado';
 COMMENT ON COLUMN public.tickets.assigned_to   IS 'Técnico responsável pelo chamado (opcional)';
 COMMENT ON COLUMN public.tickets.resolved_at   IS 'Data/hora de resolução, preenchida pelo trigger';
 

@@ -16,7 +16,10 @@ const priorityConfig: Record<TicketPriority, { label: string; className: string 
 
 const areaConfig: Record<TicketArea, { label: string; className: string }> = {
   'TI': { label: 'TI', className: 'badge-ti' },
-  'Manutenção': { label: 'Manutenção', className: 'badge-manutencao' },
+  'Manutenção Predial': { label: 'Manutenção', className: 'badge-manutencao' },
+  'Limpeza': { label: 'Limpeza', className: 'badge-limpeza' },
+  'Coordenação': { label: 'Coordenação', className: 'badge-coordenacao' },
+  'Administrativo': { label: 'Administrativo', className: 'badge-administrativo' },
 }
 
 const roleConfig: Record<UserRole, { label: string; className: string }> = {

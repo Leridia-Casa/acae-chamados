@@ -9,7 +9,7 @@ import {
 } from 'lucide-react'
 interface Props {
   stats: DashboardStats
-  areaStats: { ti: number; manutencao: number }
+  areaStats: { ti: number; manutencao: number; limpeza: number; coordenacao: number; administrativo: number }
   totalUsers: number
   recentTickets: (Partial<Ticket> & { user?: { full_name: string } })[]
 }
@@ -48,11 +48,11 @@ export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTick
         ))}
       </div>
       {/* Area Breakdown + Quick Links */}
-      <div className="animate-fade-in-up animate-delay-200" style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-        gap: 16, 
-        marginBottom: 24 
+      <div className="animate-fade-in-up animate-delay-200" style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: 16,
+        marginBottom: 24
       }}>
         {/* Area breakdown */}
         <div className="glass-card" style={{ padding: '1.5rem' }}>
@@ -63,7 +63,10 @@ export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTick
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {[
               { label: 'TI', value: areaStats.ti, total: stats.total, color: '#8b47ff', icon: <Monitor size={16} /> },
-              { label: 'Manutenção', value: areaStats.manutencao, total: stats.total, color: '#38bdf8', icon: <Wrench size={16} /> },
+              { label: 'Manutenção Predial', value: areaStats.manutencao, total: stats.total, color: '#38bdf8', icon: <Wrench size={16} /> },
+              { label: 'Limpeza', value: areaStats.limpeza, total: stats.total, color: '#10b981', icon: <Sparkles size={16} /> },
+              { label: 'Coordenação', value: areaStats.coordenacao, total: stats.total, color: '#f59e0b', icon: <Users size={16} /> },
+              { label: 'Administrativo', value: areaStats.administrativo, total: stats.total, color: '#ec4899', icon: <Briefcase size={16} /> },
             ].map(area => {
               const pct = stats.total > 0 ? Math.round((area.value / stats.total) * 100) : 0
               return (

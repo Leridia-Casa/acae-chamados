@@ -66,7 +66,10 @@ export function MyTicketsList({ tickets }: { tickets: Ticket[] }) {
           <select className="Acaê-select" style={{ padding: '0.5rem 2rem 0.5rem 0.875rem', minWidth: 140 }} value={filterArea} onChange={e => setFilterArea(e.target.value)}>
             <option value="">Todas as áreas</option>
             <option value="TI">TI</option>
-            <option value="Manutenção">Manutenção</option>
+            <option value="Manutenção Predial">Manutenção Predial</option>
+            <option value="Limpeza">Limpeza</option>
+            <option value="Coordenação">Coordenação</option>
+            <option value="Administrativo">Administrativo</option>
           </select>
         </div>
         <div style={{ position: 'relative' }}>
