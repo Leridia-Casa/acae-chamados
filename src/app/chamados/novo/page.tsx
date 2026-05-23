@@ -139,7 +139,8 @@ export default function NovoChamadoPage() {
         .upload(fileName, image)
 
       if (uploadError) {
-        setError('Erro ao enviar imagem')
+        console.error('Storage error:', uploadError)
+        setError('Erro ao enviar imagem: ' + uploadError.message)
         setLoading(false)
         return
       }
