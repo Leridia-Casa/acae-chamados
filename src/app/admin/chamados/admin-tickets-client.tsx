@@ -36,7 +36,7 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
       (!filterArea || t.area === filterArea) &&
       (!filterPriority || t.priority === filterPriority)
   })
-  const urgentCount = tickets.filter(t => t.priority === 'Urgente' && t.status !== 'Fechado' && t.status !== 'Resolvido').length
+  const urgentCount = tickets.filter(t => t.priority === 'Urgente' && t.status !== 'Resolvido').length
   return (
     <div style={{ padding: '2rem' }}>
       <div className="animate-fade-in-up" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20, flexWrap: 'wrap', gap: 12 }}>

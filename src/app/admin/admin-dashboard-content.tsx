@@ -3,8 +3,7 @@ import Link from 'next/link'
 import { DashboardStats, Ticket } from '@/lib/types'
 import { StatusBadge, PriorityBadge, AreaBadge } from '@/components/badges'
 import {
-
-  Ticket as TicketIcon, Users, Monitor, Wrench,
+  Ticket as TicketIcon, Users, Monitor, Wrench, Sparkles, Briefcase,
   AlertTriangle, Loader, CheckCircle, ArrowRight, TrendingUp
 } from 'lucide-react'
 interface Props {
@@ -33,7 +32,7 @@ export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTick
         {[
           { label: 'Total Chamados', value: stats.total, icon: <TicketIcon size={18} />, color: 'var(--Acaê-400)', bg: 'rgba(139,71,255,0.1)' },
           { label: 'Em Aberto', value: stats.aberto, icon: <AlertTriangle size={18} />, color: '#93c5fd', bg: 'rgba(59,130,246,0.1)' },
-          { label: 'Em Andamento', value: stats.em_andamento, icon: <Loader size={18} />, color: '#fcd34d', bg: 'rgba(245,158,11,0.1)' },
+          { label: 'Ag. Retorno', value: stats.aguardando_retorno, icon: <Loader size={18} />, color: '#fcd34d', bg: 'rgba(245,158,11,0.1)' },
           { label: 'Resolvidos', value: stats.resolvido, icon: <CheckCircle size={18} />, color: '#6ee7b7', bg: 'rgba(16,185,129,0.1)' },
           { label: 'Urgentes', value: stats.urgente, icon: <AlertTriangle size={18} />, color: '#fca5a5', bg: 'rgba(239,68,68,0.1)' },
           { label: 'Usuários', value: totalUsers, icon: <Users size={18} />, color: 'var(--Acaê-300)', bg: 'rgba(139,71,255,0.08)' },

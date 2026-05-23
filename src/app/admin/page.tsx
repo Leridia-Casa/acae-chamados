@@ -12,9 +12,9 @@ export default async function AdminPage() {
   // All stats
   const { count: total } = await supabase.from('tickets').select('*', { count: 'exact', head: true })
   const { count: aberto } = await supabase.from('tickets').select('*', { count: 'exact', head: true }).eq('status', 'Aberto')
-  const { count: emAndamento } = await supabase.from('tickets').select('*', { count: 'exact', head: true }).eq('status', 'Em Andamento')
+  const { count: aguardandoRetorno } = await supabase.from('tickets').select('*', { count: 'exact', head: true }).eq('status', 'Aguardando Retorno')
   const { count: resolvido } = await supabase.from('tickets').select('*', { count: 'exact', head: true }).eq('status', 'Resolvido')
-  const { count: urgente } = await supabase.from('tickets').select('*', { count: 'exact', head: true }).eq('priority', 'Urgente').neq('status', 'Fechado').neq('status', 'Resolvido')
+  const { count: urgente } = await supabase.from('tickets').select('*', { count: 'exact', head: true }).eq('priority', 'Urgente').neq('status', 'Resolvido')
   const { count: tiTickets } = await supabase.from('tickets').select('*', { count: 'exact', head: true }).eq('area', 'TI')
   const { count: manutTickets } = await supabase.from('tickets').select('*', { count: 'exact', head: true }).eq('area', 'Manutenção Predial')
   const { count: limpezaTickets } = await supabase.from('tickets').select('*', { count: 'exact', head: true }).eq('area', 'Limpeza')
@@ -29,7 +29,7 @@ export default async function AdminPage() {
   return (
     <AppShell>
       <AdminDashboardContent
-        stats={{ total: total || 0, aberto: aberto || 0, em_andamento: emAndamento || 0, resolvido: resolvido || 0, urgente: urgente || 0 }}
+        stats={{ total: total || 0, aberto: aberto || 0, aguardando_retorno: aguardandoRetorno || 0, resolvido: resolvido || 0, urgente: urgente || 0 }}
         areaStats={{ ti: tiTickets || 0, manutencao: manutTickets || 0, limpeza: limpezaTickets || 0, coordenacao: coordTickets || 0, administrativo: adminTickets || 0 }}
         totalUsers={totalUsers || 0}
         recentTickets={recentTickets || []}
