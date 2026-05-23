@@ -481,9 +481,9 @@ export default function NovoChamadoPage() {
 
           {/* FOTO */}
           <div className="glass-card" style={{ padding: '1.5rem' }}>
-            <label className="form-label">
+            <div className="form-label">
               Anexar Foto
-            </label>
+            </div>
 
             <div
               style={{
@@ -494,30 +494,70 @@ export default function NovoChamadoPage() {
                 background: 'rgba(139,71,255,0.04)'
               }}
             >
-              <ImageIcon
-                size={32}
-                color="rgba(255,255,255,0.5)"
-              />
+              <label
+                htmlFor="ticket-image"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  minHeight: 180,
+                  gap: 12,
+                  padding: '1rem 0'
+                }}
+              >
+                <ImageIcon
+                  size={32}
+                  color="rgba(255,255,255,0.5)"
+                />
+
+                <div
+                  style={{
+                    marginTop: 0,
+                    color: 'rgba(255,255,255,0.85)',
+                    fontWeight: 700,
+                    fontSize: '0.98rem'
+                  }}
+                >
+                  Clique para anexar uma imagem
+                </div>
+
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '0.65rem 1.2rem',
+                    borderRadius: 9999,
+                    background: 'rgba(139,71,255,0.18)',
+                    color: '#fff',
+                    fontWeight: 600,
+                    border: '1px solid rgba(139,71,255,0.35)',
+                    transition: 'background 0.2s ease'
+                  }}
+                >
+                  Selecionar imagem
+                </div>
+
+                <p
+                  style={{
+                    marginTop: 0,
+                    fontSize: 12,
+                    opacity: 0.5
+                  }}
+                >
+                  PNG, JPG ou JPEG • Máximo 5MB
+                </p>
+              </label>
 
               <input
+                id="ticket-image"
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
-                style={{
-                  marginTop: 16,
-                  color: '#fff'
-                }}
+                style={{ display: 'none' }}
               />
-
-              <p
-                style={{
-                  marginTop: 10,
-                  fontSize: 12,
-                  opacity: 0.5
-                }}
-              >
-                PNG, JPG ou JPEG • Máximo 5MB
-              </p>
 
               {imagePreview && (
                 <img
