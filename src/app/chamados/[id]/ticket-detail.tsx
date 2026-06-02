@@ -62,7 +62,7 @@ export function TicketDetail({ ticket, currentProfile }: Props) {
     setSendingComment(false)
   }
   return (
-    <div style={{ padding: '2rem', maxWidth: 900, margin: '0 auto' }}>
+    <div className="w-full max-w-[900px] mx-auto p-4 md:p-8">
       {/* Back */}
       <button
         className="btn-ghost animate-fade-in-up"
@@ -71,7 +71,7 @@ export function TicketDetail({ ticket, currentProfile }: Props) {
       >
         <ArrowLeft size={16} /> Voltar
       </button>
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 24, alignItems: 'start' }}>
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 items-start">
         {/* Main content */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           {/* Header card */}
