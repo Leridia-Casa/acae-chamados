@@ -73,7 +73,7 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
       setLoading(false)
       return
     }
-    setUsers(prev => prev.map(u => u.id === editUserForm.id ? { ...u, full_name: editUserForm.full_name, role: editUserForm.role, area: editUserForm.area || null } : u))
+    setUsers(prev => prev.map(u => u.id === editUserForm.id ? { ...u, full_name: editUserForm.full_name, role: editUserForm.role as UserRole, area: (editUserForm.area || null) as TicketArea | null } : u) as Profile[])
     setSuccess('Usuário atualizado com sucesso!')
     setLoading(false)
     setTimeout(() => {

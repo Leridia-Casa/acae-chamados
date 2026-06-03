@@ -1,130 +1,179 @@
+'use client'
 import { AppShell } from '@/components/app-shell'
-import { Info, Users, GraduationCap, BookOpen } from 'lucide-react'
+import { BookOpen, Users, GraduationCap, Target } from 'lucide-react'
+import Image from 'next/image'
+
+const integrantes = [
+  'Cauã Gasparoto Nascimento',
+  'Giovane Pasqualinott',
+  'Leridia Casanova Abrantes',
+  'Miguel Carvalho de Oliveira Pinto',
+  'Misael Elias de Souz',
+  'Otávio Henrique Gomes Rodrigues',
+]
+
+const professores = [
+  'Prof. Dr. Elvio Gilberto da Silva',
+  'Prof. Me. Luis Felipe Grael Tinós',
+  'Professora Esp. Camila Pellizon Floret (professora colaboradora)',
+]
 
 export default function CreditosPage() {
   return (
     <AppShell>
-      <div style={{ padding: 'min(2rem, 1rem)', maxWidth: 800, margin: '0 auto', paddingBottom: '4rem' }}>
-        <div className="animate-fade-in-up" style={{ marginBottom: 24 }}>
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f0eeff', marginBottom: 4 }}>
+      <div style={{ padding: 'min(2rem, 1rem)', maxWidth: 860, margin: '0 auto' }}>
+
+        {/* Header */}
+        <div className="animate-fade-in-up" style={{ marginBottom: 28 }}>
+          <h1 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#f0eeff', marginBottom: 4 }}>
             Créditos e Sobre
           </h1>
           <p style={{ color: 'rgba(240,238,255,0.45)', fontSize: '0.875rem' }}>
-            Informações institucionais e equipe de desenvolvimento
+            Informações acadêmicas e equipe do projeto Acaê Chamados
           </p>
         </div>
 
-        <div className="glass-card animate-fade-in-up animate-delay-100" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: 32 }}>
-          
-          {/* Header */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            <div style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(139,71,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(139,71,255,0.3)' }}>
-              <Info size={24} color="var(--Acaê-300)" />
+        {/* Disciplina + Finalidade */}
+        <div className="glass-card animate-fade-in-up animate-delay-100" style={{ padding: '1.75rem', marginBottom: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+            <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(139,71,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(139,71,255,0.3)', flexShrink: 0 }}>
+              <BookOpen size={20} color="var(--Acaê-300)" />
             </div>
             <div>
-              <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#fff' }}>Acaê Chamados</h2>
-              <div style={{ color: 'rgba(240,238,255,0.5)', fontSize: '0.9rem' }}>Sistema de Gestão e Atendimento</div>
+              <div style={{ fontSize: '0.7rem', color: 'rgba(240,238,255,0.35)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 2 }}>Informações Acadêmicas</div>
+              <h2 style={{ fontSize: '1rem', fontWeight: 700, color: '#f0eeff' }}>Desenvolvimento de Software</h2>
             </div>
           </div>
 
-          <div style={{ width: '100%', height: 1, background: 'rgba(255,255,255,0.05)' }} />
-
-          {/* Finalidade do Projeto */}
-          <div>
-            <h3 style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.8)', marginBottom: 8, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8 }}>
-              <BookOpen size={18} color="var(--Acaê-300)" />
-              Finalidade do Projeto
-            </h3>
-            <p style={{ color: 'rgba(240,238,255,0.5)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-              O sistema Acaê Chamados foi desenvolvido para otimizar e organizar o fluxo de atendimentos e manutenção corporativa.
-              Ele permite a abertura centralizada de chamados, classificação por áreas e prioridades, e o acompanhamento em tempo real do status de cada solicitação, garantindo maior eficiência e transparência na resolução de problemas.
-            </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
+            <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '1rem', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ fontSize: '0.72rem', color: 'rgba(240,238,255,0.35)', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Disciplina</div>
+              <div style={{ color: '#f0eeff', fontWeight: 600, fontSize: '0.9rem' }}>Desenvolvimento de Software</div>
+            </div>
+            <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '1rem', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ fontSize: '0.72rem', color: 'rgba(240,238,255,0.35)', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Curso / Turma</div>
+              <div style={{ color: '#f0eeff', fontWeight: 600, fontSize: '0.9rem' }}>Ciência da Computação — 2025</div>
+            </div>
           </div>
+        </div>
 
-          <div style={{ width: '100%', height: 1, background: 'rgba(255,255,255,0.05)' }} />
+        {/* Finalidade */}
+        <div className="glass-card animate-fade-in-up animate-delay-100" style={{ padding: '1.75rem', marginBottom: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+            <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(139,71,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(139,71,255,0.3)', flexShrink: 0 }}>
+              <Target size={20} color="var(--Acaê-300)" />
+            </div>
+            <h2 style={{ fontSize: '1rem', fontWeight: 700, color: '#f0eeff' }}>Finalidade do Projeto</h2>
+          </div>
+          <p style={{ color: 'rgba(240,238,255,0.6)', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>
+            O <strong style={{ color: '#f0eeff' }}>Acaê Chamados</strong> é um sistema de gestão de chamados desenvolvido para otimizar o fluxo de atendimento interno de uma organização. Permite que colaboradores abram solicitações de suporte técnico, manutenção predial, limpeza, coordenação e administrativo, com acompanhamento em tempo real do status, prioridade e responsável pelo atendimento. O sistema oferece painéis diferenciados para usuários, técnicos e administradores, garantindo rastreabilidade e organização dos processos internos.
+          </p>
+        </div>
 
-          {/* Informações Acadêmicas */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <h3 style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.8)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8 }}>
-              <GraduationCap size={18} color="var(--Acaê-300)" />
-              Informações Acadêmicas
-            </h3>
+        {/* Professores */}
+        <div className="glass-card animate-fade-in-up animate-delay-200" style={{ padding: '1.75rem', marginBottom: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+            <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(139,71,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(139,71,255,0.3)', flexShrink: 0 }}>
+              <GraduationCap size={20} color="var(--Acaê-300)" />
+            </div>
+            <h2 style={{ fontSize: '1rem', fontWeight: 700, color: '#f0eeff' }}>Professores Responsáveis</h2>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {professores.map((prof, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '0.75rem 1rem', background: 'rgba(255,255,255,0.03)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--Acaê-300)', flexShrink: 0 }} />
+                <span style={{ color: '#f0eeff', fontSize: '0.9rem', fontWeight: 500 }}>{prof}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Integrantes */}
+        <div className="glass-card animate-fade-in-up animate-delay-300" style={{ padding: '1.75rem', marginBottom: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+            <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(139,71,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(139,71,255,0.3)', flexShrink: 0 }}>
+              <Users size={20} color="var(--Acaê-300)" />
+            </div>
+            <h2 style={{ fontSize: '1rem', fontWeight: 700, color: '#f0eeff' }}>Equipe do Projeto</h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 10 }}>
+            {integrantes.map((nome, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '0.75rem 1rem', background: 'rgba(255,255,255,0.03)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{
+                  width: 34, height: 34, borderRadius: '50%', flexShrink: 0,
+                  background: 'linear-gradient(135deg, #8b47ff, #6d12ee)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: '0.8rem', fontWeight: 700, color: '#fff',
+                }}>
+                  {nome[0]}
+                </div>
+                <span style={{ color: '#f0eeff', fontSize: '0.875rem', fontWeight: 500 }}>{nome}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Logos */}
+        <div className="glass-card animate-fade-in-up animate-delay-300" style={{ padding: '1.75rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center', justifyContent: 'center' }}>
             
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 16 }}>
-              <div>
-                <strong style={{ display: 'block', color: 'rgba(240,238,255,0.7)', fontSize: '0.85rem', marginBottom: 4 }}>Disciplina</strong>
-                <span style={{ color: 'rgba(240,238,255,0.5)', fontSize: '0.9rem' }}>Desenvolvimento de Software</span>
-              </div>
-              
-              <div>
-                <strong style={{ display: 'block', color: 'rgba(240,238,255,0.7)', fontSize: '0.85rem', marginBottom: 4 }}>Professores Responsáveis</strong>
-                <ul style={{ color: 'rgba(240,238,255,0.5)', fontSize: '0.9rem', paddingLeft: 0, listStyle: 'none', margin: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
-                  <li>Prof. Dr. Elvio Gilberto da Silva</li>
-                  <li>Prof. Me. Luis Felipe Grael Tinós</li>
-                  <li>Professora Esp. Camila Floret Pelizon (professora colaboradora)</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div style={{ width: '100%', height: 1, background: 'rgba(255,255,255,0.05)' }} />
-
-          {/* Integrantes */}
-          <div>
-            <h3 style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.8)', marginBottom: 12, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8 }}>
-              <Users size={18} color="var(--Acaê-300)" />
-              Equipe de Desenvolvimento (Integrantes)
-            </h3>
-            <ul style={{ 
-              color: 'rgba(240,238,255,0.5)', 
-              fontSize: '0.9rem', 
-              paddingLeft: '1.2rem', 
-              lineHeight: 1.8,
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '0.5rem 1rem'
-            }}>
-              <li>Cauã Gasparoto Nascimento</li>
-              <li>Giovane Pasqualinott</li>
-              <li>Leridia Casanova Abrantes</li>
-              <li>Miguel Carvalho de Oliveira Pinto</li>
-              <li>Misael Elias de Souz</li>
-              <li>Otávio Henrique Gomes Rodrigues</li>
-            </ul>
-          </div>
-
-          <div style={{ width: '100%', height: 1, background: 'rgba(255,255,255,0.05)' }} />
-
-          {/* Institucional (Logos) */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, marginTop: 16, alignItems: 'center', justifyContent: 'center', background: '#fff', padding: '2rem', borderRadius: 12 }}>
+            {/* Desenvolvimento - UNISAGRADO */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-              <span style={{ color: '#333', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Desenvolvimento:</span>
-              {/* Fallback image for UNISAGRADO */}
-              <img 
-                src="https://unisagrado.edu.br/wp-content/themes/unisagrado/assets/img/logo-unisagrado.svg" 
-                alt="Logotipo UNISAGRADO" 
-                style={{ height: 60, objectFit: 'contain' }}
+              <div style={{ fontSize: '0.7rem', color: 'rgba(240,238,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                Desenvolvimento:
+              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://unisagrado.edu.br/uploads/2008/logotipos/monoliticas_unisagrado/coordenadoria-deextensao.jpg"
+                alt="Logo UNISAGRADO"
+                style={{ height: 60, objectFit: 'contain', filter: 'brightness(1.1)' }}
                 onError={(e) => {
-                  // Fallback to text if the image fails to load
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.parentElement!.insertAdjacentHTML('beforeend', '<div style="color: #c8102e; font-weight: 800; font-size: 1.5rem;">UNISAGRADO</div>');
+                  const target = e.target as HTMLImageElement
+                  target.style.display = 'none'
+                  const parent = target.parentElement
+                  if (parent) {
+                    const fallback = document.createElement('div')
+                    fallback.textContent = 'UNISAGRADO'
+                    fallback.style.cssText = 'color:#f0eeff;font-weight:800;font-size:1.2rem;letter-spacing:0.05em;'
+                    parent.appendChild(fallback)
+                  }
                 }}
               />
             </div>
 
-            <div style={{ width: 1, height: 60, background: 'rgba(0,0,0,0.1)', display: 'block' }} />
+            <div style={{ width: 1, height: 60, background: 'rgba(255,255,255,0.08)' }} />
 
+            {/* Apoio - Coordenadoria de Extensão */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-              <span style={{ color: '#333', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Apoio:</span>
-              <img 
-                src="https://unisagrado.edu.br/uploads/2008/logotipos/monoliticas_unisagrado/coordenadoria-deextensao.jpg" 
-                alt="Logotipo Coordenadoria de Extensão" 
-                style={{ height: 60, objectFit: 'contain' }}
+              <div style={{ fontSize: '0.7rem', color: 'rgba(240,238,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                Apoio:
+              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://unisagrado.edu.br/uploads/2008/logotipos/monoliticas_unisagrado/coordenadoria-deextensao.jpg"
+                alt="Logo Coordenadoria de Extensão"
+                style={{ height: 60, objectFit: 'contain', filter: 'brightness(1.1)' }}
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement
+                  target.style.display = 'none'
+                  const parent = target.parentElement
+                  if (parent) {
+                    const fallback = document.createElement('div')
+                    fallback.textContent = 'Coordenadoria de Extensão'
+                    fallback.style.cssText = 'color:#f0eeff;font-weight:700;font-size:0.9rem;text-align:center;'
+                    parent.appendChild(fallback)
+                  }
+                }}
               />
             </div>
-          </div>
 
+          </div>
         </div>
+
+        <div style={{ textAlign: 'center', marginTop: 20, color: 'rgba(240,238,255,0.2)', fontSize: '0.75rem' }}>
+          Acaê Chamados — Sistema de Gestão de Chamados · Desenvolvimento de Software · UNISAGRADO 2025
+        </div>
+
       </div>
     </AppShell>
   )
