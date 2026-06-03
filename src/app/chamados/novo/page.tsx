@@ -313,9 +313,8 @@ export default function NovoChamadoPage() {
 
             <div
               style={{
-                display: 'grid',
-                gridTemplateColumns:
-                  'repeat(auto-fit,minmax(180px,1fr))',
+                display: 'flex',
+                flexWrap: 'wrap',
                 gap: 10
               }}
             >
