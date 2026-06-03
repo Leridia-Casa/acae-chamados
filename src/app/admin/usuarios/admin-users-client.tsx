@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Profile, UserRole, TicketArea } from '@/lib/types'
 import { RoleBadge } from '@/components/badges'
-import { Plus, Search, User, X, AlertCircle, CheckCircle, Eye, EyeOff, Trash2 } from 'lucide-react'
+import { Plus, Search, User, X, AlertCircle, CheckCircle, Eye, EyeOff, Trash2, Edit2, Save } from 'lucide-react'
 
 interface Props {
   users: Profile[]
@@ -23,6 +23,8 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
   const [users, setUsers] = useState<Profile[]>(initialUsers)
   const [search, setSearch] = useState('')
   const [showModal, setShowModal] = useState(false)
+  const [showEditModal, setShowEditModal] = useState(false)
+  const [editUserForm, setEditUserForm] = useState<{id: string, full_name: string, role: UserRole, area: TicketArea | ''}>({ id: '', full_name: '', role: 'usuario', area: '' })
   const [newUser, setNewUser] = useState<NewUser>(EMPTY_USER)
   const [loading, setLoading] = useState(false)
   const [showPwd, setShowPwd] = useState(false)
@@ -53,6 +55,31 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
     setNewUser(EMPTY_USER)
     setTimeout(() => { setShowModal(false); setSuccess('') }, 1500)
     setLoading(false)
+  }
+
+  const handleEdit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    setError('')
+    setSuccess('')
+    const res = await fetch('/api/admin/editar-usuario', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(editUserForm),
+    })
+    const json = await res.json()
+    if (!res.ok) {
+      setError(json.error || 'Erro ao editar usuário')
+      setLoading(false)
+      return
+    }
+    setUsers(prev => prev.map(u => u.id === editUserForm.id ? { ...u, full_name: editUserForm.full_name, role: editUserForm.role, area: editUserForm.area || null } : u))
+    setSuccess('Usuário atualizado com sucesso!')
+    setLoading(false)
+    setTimeout(() => {
+      setShowEditModal(false)
+      setSuccess('')
+    }, 1500)
   }
   const handleDeleteUser = async (userId: string, userName: string) => {
     if (!confirm(`Tem certeza que deseja remover ${userName}?`)) return
@@ -131,13 +158,29 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
                 </td>
                 <td style={{ textAlign: 'right' }}>
                   {u.id !== currentUserId && (
-                    <button
-                      className="btn-ghost"
-                      onClick={() => handleDeleteUser(u.id, u.full_name)}
-                      style={{ padding: '0.3rem 0.6rem', color: 'rgba(239,68,68,0.6)' }}
-                    >
-                      <Trash2 size={14} />
-                    </button>
+                    <>
+                      <button
+                        className="btn-ghost"
+                        onClick={() => {
+                          setEditUserForm({ id: u.id, full_name: u.full_name, role: u.role, area: u.area || '' })
+                          setShowEditModal(true)
+                          setError('')
+                          setSuccess('')
+                        }}
+                        style={{ padding: '0.3rem 0.6rem', color: 'rgba(240,238,255,0.6)' }}
+                        title="Editar"
+                      >
+                        <Edit2 size={14} />
+                      </button>
+                      <button
+                        className="btn-ghost"
+                        onClick={() => handleDeleteUser(u.id, u.full_name)}
+                        style={{ padding: '0.3rem 0.6rem', color: 'rgba(239,68,68,0.6)' }}
+                        title="Remover"
+                      >
+                        <Trash2 size={14} />
+                      </button>
+                    </>
                   )}
                 </td>
               </tr>
@@ -205,24 +248,75 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
                     <option value="admin">Admin</option>
                   </select>
                 </div>
-                {(newUser.role === 'tecnico') && (
-                  <div>
-                    <label className="form-label">Área</label>
-                    <select id="new-user-area" className="Acaê-select" value={newUser.area} onChange={e => setNewUser(u => ({ ...u, area: e.target.value as TicketArea }))}>
-                      <option value="">Selecione...</option>
-                      <option value="TI">TI</option>
-                      <option value="Manutenção Predial">Manutenção Predial</option>
-                      <option value="Limpeza">Limpeza</option>
-                      <option value="Coordenação">Coordenação</option>
-                      <option value="Administrativo">Administrativo</option>
-                    </select>
-                  </div>
-                )}
+                <div>
+                  <label className="form-label">Área</label>
+                  <select id="new-user-area" className="Acaê-select" value={newUser.area} onChange={e => setNewUser(u => ({ ...u, area: e.target.value as TicketArea }))}>
+                    <option value="">Nenhuma</option>
+                    <option value="TI">TI</option>
+                    <option value="Manutenção Predial">Manutenção Predial</option>
+                    <option value="Limpeza">Limpeza</option>
+                    <option value="Coordenação">Coordenação</option>
+                    <option value="Administrativo">Administrativo</option>
+                  </select>
+                </div>
               </div>
               <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end', marginTop: 8 }}>
                 <button type="button" className="btn-secondary" onClick={() => setShowModal(false)}>Cancelar</button>
                 <button id="create-user-btn" type="submit" className="btn-primary" disabled={loading}>
                   {loading ? 'Criando...' : <><User size={15} /> Criar Usuário</>}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Modal */}
+      {showEditModal && (
+        <div style={{
+          position: 'fixed', inset: 0, zIndex: 100,
+          background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem',
+        }} onClick={e => { if (e.target === e.currentTarget) setShowEditModal(false) }}>
+          <div className="glass-card animate-fade-in-up" style={{ width: '100%', maxWidth: 480, padding: '2rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24 }}>
+              <h2 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#f0eeff' }}>Editar Usuário</h2>
+              <button className="btn-ghost" onClick={() => setShowEditModal(false)} style={{ padding: '0.3rem' }}>
+                <X size={18} />
+              </button>
+            </div>
+            {error && <div className="alert-error" style={{ marginBottom: 16, display: 'flex', gap: 8, alignItems: 'center' }}><AlertCircle size={15} />{error}</div>}
+            {success && <div className="alert-success" style={{ marginBottom: 16, display: 'flex', gap: 8, alignItems: 'center' }}><CheckCircle size={15} />{success}</div>}
+            <form onSubmit={handleEdit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <div>
+                <label className="form-label">Nome Completo *</label>
+                <input type="text" id="edit-user-name" className="Acaê-input" placeholder="Nome do usuário" value={editUserForm.full_name} onChange={e => setEditUserForm(u => ({ ...u, full_name: e.target.value }))} required />
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                <div>
+                  <label className="form-label">Perfil *</label>
+                  <select id="edit-user-role" className="Acaê-select" value={editUserForm.role} onChange={e => setEditUserForm(u => ({ ...u, role: e.target.value as UserRole }))}>
+                    <option value="usuario">Usuário</option>
+                    <option value="tecnico">Técnico</option>
+                    <option value="admin">Admin</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="form-label">Área</label>
+                  <select id="edit-user-area" className="Acaê-select" value={editUserForm.area} onChange={e => setEditUserForm(u => ({ ...u, area: e.target.value as TicketArea }))}>
+                    <option value="">Nenhuma</option>
+                    <option value="TI">TI</option>
+                    <option value="Manutenção Predial">Manutenção Predial</option>
+                    <option value="Limpeza">Limpeza</option>
+                    <option value="Coordenação">Coordenação</option>
+                    <option value="Administrativo">Administrativo</option>
+                  </select>
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end', marginTop: 8 }}>
+                <button type="button" className="btn-secondary" onClick={() => setShowEditModal(false)}>Cancelar</button>
+                <button id="save-user-btn" type="submit" className="btn-primary" disabled={loading}>
+                  {loading ? 'Salvando...' : <><Save size={15} /> Salvar</>}
                 </button>
               </div>
             </form>
