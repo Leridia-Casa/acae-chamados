@@ -354,11 +354,14 @@ export default function NovoChamadoPage() {
             </div>
           </div>
 
-          {/* TITULO */}
-          <div className="glass-card" style={{ padding: '1.5rem' }}>
-            <label className="form-label">
-              Assunto / Título *
-            </label>
+          {/* INFORMAÇÕES ADICIONAIS */}
+          <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
+              {/* TITULO */}
+              <div>
+                <label className="form-label">
+                  Assunto / Título *
+                </label>
 
             <input
               type="text"
@@ -373,13 +376,13 @@ export default function NovoChamadoPage() {
               }
               required
             />
-          </div>
+              </div>
 
-          {/* PRIORIDADE */}
-          <div className="glass-card" style={{ padding: '1.5rem' }}>
-            <label className="form-label">
-              Prioridade *
-            </label>
+              {/* PRIORIDADE */}
+              <div>
+                <label className="form-label">
+                  Prioridade *
+                </label>
 
             <div style={{ position: 'relative' }}>
               <select
@@ -412,13 +415,14 @@ export default function NovoChamadoPage() {
             <div style={{ marginTop: 10 }}>
               <PriorityBadge priority={form.priority} />
             </div>
-          </div>
+              </div>
+            </div>
 
-          {/* LOCAL */}
-          <div className="glass-card" style={{ padding: '1.5rem' }}>
-            <label className="form-label">
-              Localização / Setor
-            </label>
+            {/* LOCAL */}
+            <div>
+              <label className="form-label">
+                Localização / Setor
+              </label>
 
             <div style={{ position: 'relative' }}>
               <MapPin
@@ -445,13 +449,13 @@ export default function NovoChamadoPage() {
                 }
               />
             </div>
-          </div>
+            </div>
 
-          {/* DESCRIÇÃO */}
-          <div className="glass-card" style={{ padding: '1.5rem' }}>
-            <label className="form-label">
-              Descrição Detalhada *
-            </label>
+            {/* DESCRIÇÃO */}
+            <div>
+              <label className="form-label">
+                Descrição Detalhada *
+              </label>
 
             <textarea
               className="Acaê-textarea"
@@ -478,13 +482,13 @@ export default function NovoChamadoPage() {
             >
               {form.description.length} caracteres
             </div>
-          </div>
-
-          {/* FOTO */}
-          <div className="glass-card" style={{ padding: '1.5rem' }}>
-            <div className="form-label">
-              Anexar Foto
             </div>
+
+            {/* FOTO */}
+            <div>
+              <div className="form-label">
+                Anexar Foto
+              </div>
 
             <div
               style={{
