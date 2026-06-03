@@ -116,7 +116,7 @@ export default function CreditosPage() {
         {/* Logos */}
         <div className="glass-card animate-fade-in-up animate-delay-300" style={{ padding: '1.75rem' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center', justifyContent: 'center' }}>
-                        {/* Desenvolvimento - UNISAGRADO */}
+            {/* Desenvolvimento - UNISAGRADO */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
               <div style={{ fontSize: '0.7rem', color: 'rgba(240,238,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
                 Desenvolvimento:
@@ -125,7 +125,7 @@ export default function CreditosPage() {
               <img
                 src="/logos/logo-unisagrado.png"
                 alt="Logo UNISAGRADO"
-                style={{ height: 60, objectFit: 'contain', filter: 'brightness(1.2)' }}
+                style={{ height: 80, objectFit: 'contain', filter: 'brightness(1.2)' }}
               />
             </div>
 
@@ -140,7 +140,7 @@ export default function CreditosPage() {
               <img
                 src="/logos/logo-extensao.jpg"
                 alt="Logo Coordenadoria de Extensão"
-                style={{ height: 60, objectFit: 'contain', filter: 'brightness(1.2)' }}
+                style={{ height: 80, objectFit: 'contain', filter: 'brightness(1.2)' }}
               />
             </div>
 
@@ -148,7 +148,7 @@ export default function CreditosPage() {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: 20, color: 'rgba(240,238,255,0.2)', fontSize: '0.75rem' }}>
-          Acaê Chamados — Sistema de Gestão de Chamados · Desenvolvimento de Software · UNISAGRADO 2025
+          Acaê Chamados — Sistema de Gestão de Chamados · Desenvolvimento de Software · UNISAGRADO 2026
         </div>
 
       </div>
