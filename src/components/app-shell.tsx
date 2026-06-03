@@ -254,6 +254,11 @@ export function AppShell({ children }: AppShellProps) {
               <LogOut size={16} />
               Sair
             </button>
+            <div style={{ marginTop: 16, textAlign: 'center' }}>
+              <Link href="/creditos" style={{ color: 'rgba(240,238,255,0.3)', fontSize: '0.7rem', textDecoration: 'none' }}>
+                Créditos e Sobre
+              </Link>
+            </div>
           </div>
         </aside>
 
