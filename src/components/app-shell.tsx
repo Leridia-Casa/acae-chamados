@@ -63,6 +63,12 @@ export function AppShell({ children }: AppShellProps) {
   const isAdmin = profile?.role === 'admin'
   const isTecnico = profile?.role === 'tecnico' || isAdmin
 
+  const isActive = (href: string) => {
+    if (href === '/admin') return pathname === '/admin'
+    if (href === '/chamados') return pathname === '/chamados' || (pathname.startsWith('/chamados/') && !pathname.includes('novo'))
+    return pathname === href || pathname.startsWith(href + '/')
+  }
+
   const navItems = [
     { href: '/dashboard', label: 'Dashboard', icon: <LayoutDashboard size={18} /> },
     { href: '/chamados/novo', label: 'Novo Chamado', icon: <Plus size={18} /> },
@@ -185,7 +191,7 @@ export function AppShell({ children }: AppShellProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`nav-item ${pathname === item.href || pathname.startsWith(item.href + '/') ? 'active' : ''}`}
+                className={`nav-item ${isActive(item.href) ? 'active' : ''}`}
               >
                 {item.icon}
                 {item.label}
@@ -201,7 +207,7 @@ export function AppShell({ children }: AppShellProps) {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`nav-item ${pathname === item.href || pathname.startsWith(item.href + '/') ? 'active' : ''}`}
+                    className={`nav-item ${isActive(item.href) ? 'active' : ''}`}
                   >
                     {item.icon}
                     {item.label}
@@ -219,7 +225,7 @@ export function AppShell({ children }: AppShellProps) {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`nav-item ${pathname === item.href ? 'active' : ''}`}
+                    className={`nav-item ${isActive(item.href) ? 'active' : ''}`}
                   >
                     {item.icon}
                     {item.label}

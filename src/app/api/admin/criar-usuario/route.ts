@@ -1,4 +1,4 @@
-﻿import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
 
@@ -26,7 +26,11 @@ export async function POST(request: NextRequest) {
     user_metadata: { full_name },
   })
   if (createError) {
-    return NextResponse.json({ error: createError.message }, { status: 400 })
+    let msg = createError.message
+    if (msg.toLowerCase().includes('already registered') || msg.toLowerCase().includes('already exists')) {
+      msg = 'Este e-mail já está em uso por outro usuário.'
+    }
+    return NextResponse.json({ error: msg }, { status: 400 })
   }
   // Upsert profile
   const { data: newProfile, error: profileError } = await adminSupabase
