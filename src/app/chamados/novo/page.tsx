@@ -579,6 +579,7 @@ export default function NovoChamadoPage() {
               )}
             </div>
           </div>
+          </div>
 
           {/* BOTÕES */}
           <div
