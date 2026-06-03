@@ -34,27 +34,27 @@ const areas = [
   {
     value: 'TI',
     label: 'Tecnologia da Informação',
-    icon: <Monitor size={22} />
+    icon: <Monitor size={18} />
   },
   {
     value: 'Manutenção Predial',
     label: 'Manutenção Predial',
-    icon: <Wrench size={22} />
+    icon: <Wrench size={18} />
   },
   {
     value: 'Limpeza',
     label: 'Limpeza',
-    icon: <Sparkles size={22} />
+    icon: <Sparkles size={18} />
   },
   {
     value: 'Coordenação',
     label: 'Coordenação',
-    icon: <Users size={22} />
+    icon: <Users size={18} />
   },
   {
     value: 'Administrativo',
     label: 'Administrativo',
-    icon: <Briefcase size={22} />
+    icon: <Briefcase size={18} />
   }
 ]
 
@@ -315,8 +315,8 @@ export default function NovoChamadoPage() {
               style={{
                 display: 'grid',
                 gridTemplateColumns:
-                  'repeat(auto-fit,minmax(240px,1fr))',
-                gap: 12
+                  'repeat(auto-fit,minmax(180px,1fr))',
+                gap: 10
               }}
             >
               {areas.map((area) => (
@@ -330,8 +330,8 @@ export default function NovoChamadoPage() {
                     }))
                   }
                   style={{
-                    padding: '1.5rem',
-                    borderRadius: 12,
+                    padding: '0.75rem 1rem',
+                    borderRadius: 10,
                     border:
                       form.area === area.value
                         ? '2px solid #8b47ff'
@@ -341,12 +341,18 @@ export default function NovoChamadoPage() {
                         ? 'rgba(139,71,255,0.15)'
                         : 'transparent',
                     color: '#fff',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    textAlign: 'left'
                   }}
                 >
-                  {area.icon}
+                  <div style={{ color: form.area === area.value ? 'var(--Acaê-300)' : 'rgba(255,255,255,0.6)' }}>
+                    {area.icon}
+                  </div>
 
-                  <div style={{ marginTop: 10 }}>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 500, lineHeight: 1.2 }}>
                     {area.label}
                   </div>
                 </button>
