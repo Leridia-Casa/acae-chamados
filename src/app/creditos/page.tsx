@@ -51,8 +51,8 @@ export default function CreditosPage() {
               <div style={{ color: '#f0eeff', fontWeight: 600, fontSize: '0.9rem' }}>Desenvolvimento de Software</div>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '1rem', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <div style={{ fontSize: '0.72rem', color: 'rgba(240,238,255,0.35)', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Curso / Turma</div>
-              <div style={{ color: '#f0eeff', fontWeight: 600, fontSize: '0.9rem' }}>Ciência da Computação — 2025</div>
+              <div style={{ fontSize: '0.72rem', color: 'rgba(240,238,255,0.35)', marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Tipo</div>
+              <div style={{ color: '#f0eeff', fontWeight: 600, fontSize: '0.9rem' }}>Projeto de Extensão</div>
             </div>
           </div>
         </div>
@@ -116,28 +116,16 @@ export default function CreditosPage() {
         {/* Logos */}
         <div className="glass-card animate-fade-in-up animate-delay-300" style={{ padding: '1.75rem' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center', justifyContent: 'center' }}>
-            
-            {/* Desenvolvimento - UNISAGRADO */}
+                        {/* Desenvolvimento - UNISAGRADO */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
               <div style={{ fontSize: '0.7rem', color: 'rgba(240,238,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
                 Desenvolvimento:
               </div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://unisagrado.edu.br/uploads/2008/logotipos/monoliticas_unisagrado/coordenadoria-deextensao.jpg"
+                src="/logos/logo-unisagrado.png"
                 alt="Logo UNISAGRADO"
-                style={{ height: 60, objectFit: 'contain', filter: 'brightness(1.1)' }}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.style.display = 'none'
-                  const parent = target.parentElement
-                  if (parent) {
-                    const fallback = document.createElement('div')
-                    fallback.textContent = 'UNISAGRADO'
-                    fallback.style.cssText = 'color:#f0eeff;font-weight:800;font-size:1.2rem;letter-spacing:0.05em;'
-                    parent.appendChild(fallback)
-                  }
-                }}
+                style={{ height: 60, objectFit: 'contain', filter: 'brightness(1.2)' }}
               />
             </div>
 
@@ -150,20 +138,9 @@ export default function CreditosPage() {
               </div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://unisagrado.edu.br/uploads/2008/logotipos/monoliticas_unisagrado/coordenadoria-deextensao.jpg"
+                src="/logos/logo-extensao.jpg"
                 alt="Logo Coordenadoria de Extensão"
-                style={{ height: 60, objectFit: 'contain', filter: 'brightness(1.1)' }}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.style.display = 'none'
-                  const parent = target.parentElement
-                  if (parent) {
-                    const fallback = document.createElement('div')
-                    fallback.textContent = 'Coordenadoria de Extensão'
-                    fallback.style.cssText = 'color:#f0eeff;font-weight:700;font-size:0.9rem;text-align:center;'
-                    parent.appendChild(fallback)
-                  }
-                }}
+                style={{ height: 60, objectFit: 'contain', filter: 'brightness(1.2)' }}
               />
             </div>
 
