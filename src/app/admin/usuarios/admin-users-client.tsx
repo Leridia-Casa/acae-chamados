@@ -239,26 +239,31 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
                   </button>
                 </div>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: newUser.role === 'usuario' ? '1fr' : '1fr 1fr', gap: 12 }}>
                 <div>
                   <label className="form-label">Perfil *</label>
-                  <select id="new-user-role" className="Acaê-select" value={newUser.role} onChange={e => setNewUser(u => ({ ...u, role: e.target.value as UserRole }))}>
+                  <select id="new-user-role" className="Acaê-select" value={newUser.role} onChange={e => {
+                    const role = e.target.value as UserRole
+                    setNewUser(u => ({ ...u, role, area: role === 'usuario' ? '' : u.area }))
+                  }}>
                     <option value="usuario">Usuário</option>
                     <option value="tecnico">Técnico</option>
                     <option value="admin">Admin</option>
                   </select>
                 </div>
-                <div>
-                  <label className="form-label">Área</label>
-                  <select id="new-user-area" className="Acaê-select" value={newUser.area} onChange={e => setNewUser(u => ({ ...u, area: e.target.value as TicketArea }))}>
-                    <option value="">Nenhuma</option>
-                    <option value="TI">TI</option>
-                    <option value="Manutenção Predial">Manutenção Predial</option>
-                    <option value="Limpeza">Limpeza</option>
-                    <option value="Coordenação">Coordenação</option>
-                    <option value="Administrativo">Administrativo</option>
-                  </select>
-                </div>
+                {newUser.role !== 'usuario' && (
+                  <div>
+                    <label className="form-label">Área</label>
+                    <select id="new-user-area" className="Acaê-select" value={newUser.area} onChange={e => setNewUser(u => ({ ...u, area: e.target.value as TicketArea }))}>
+                      <option value="">Nenhuma</option>
+                      <option value="TI">TI</option>
+                      <option value="Manutenção Predial">Manutenção Predial</option>
+                      <option value="Limpeza">Limpeza</option>
+                      <option value="Coordenação">Coordenação</option>
+                      <option value="Administrativo">Administrativo</option>
+                    </select>
+                  </div>
+                )}
               </div>
               <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end', marginTop: 8 }}>
                 <button type="button" className="btn-secondary" onClick={() => setShowModal(false)}>Cancelar</button>
@@ -292,26 +297,31 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
                 <label className="form-label">Nome Completo *</label>
                 <input type="text" id="edit-user-name" className="Acaê-input" placeholder="Nome do usuário" value={editUserForm.full_name} onChange={e => setEditUserForm(u => ({ ...u, full_name: e.target.value }))} required />
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: editUserForm.role === 'usuario' ? '1fr' : '1fr 1fr', gap: 12 }}>
                 <div>
                   <label className="form-label">Perfil *</label>
-                  <select id="edit-user-role" className="Acaê-select" value={editUserForm.role} onChange={e => setEditUserForm(u => ({ ...u, role: e.target.value as UserRole }))}>
+                  <select id="edit-user-role" className="Acaê-select" value={editUserForm.role} onChange={e => {
+                    const role = e.target.value as UserRole
+                    setEditUserForm(u => ({ ...u, role, area: role === 'usuario' ? '' : u.area }))
+                  }}>
                     <option value="usuario">Usuário</option>
                     <option value="tecnico">Técnico</option>
                     <option value="admin">Admin</option>
                   </select>
                 </div>
-                <div>
-                  <label className="form-label">Área</label>
-                  <select id="edit-user-area" className="Acaê-select" value={editUserForm.area} onChange={e => setEditUserForm(u => ({ ...u, area: e.target.value as TicketArea }))}>
-                    <option value="">Nenhuma</option>
-                    <option value="TI">TI</option>
-                    <option value="Manutenção Predial">Manutenção Predial</option>
-                    <option value="Limpeza">Limpeza</option>
-                    <option value="Coordenação">Coordenação</option>
-                    <option value="Administrativo">Administrativo</option>
-                  </select>
-                </div>
+                {editUserForm.role !== 'usuario' && (
+                  <div>
+                    <label className="form-label">Área</label>
+                    <select id="edit-user-area" className="Acaê-select" value={editUserForm.area} onChange={e => setEditUserForm(u => ({ ...u, area: e.target.value as TicketArea }))}>
+                      <option value="">Nenhuma</option>
+                      <option value="TI">TI</option>
+                      <option value="Manutenção Predial">Manutenção Predial</option>
+                      <option value="Limpeza">Limpeza</option>
+                      <option value="Coordenação">Coordenação</option>
+                      <option value="Administrativo">Administrativo</option>
+                    </select>
+                  </div>
+                )}
               </div>
               <div style={{ display: 'flex', gap: 10, justifyContent: 'flex-end', marginTop: 8 }}>
                 <button type="button" className="btn-secondary" onClick={() => setShowEditModal(false)}>Cancelar</button>
