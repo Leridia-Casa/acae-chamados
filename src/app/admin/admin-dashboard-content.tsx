@@ -119,8 +119,8 @@ export function AdminDashboardContent({ stats, areaStats, totalUsers, recentTick
             Ver todos <ArrowRight size={13} />
           </Link>
         </div>
-        <div className="glass-card table-container" style={{ overflow: 'hidden' }}>
-          <div className="table-container">
+        <div className="glass-card table-container">
+          <div>
             <table className="Acaê-table">
               <thead>
                 <tr>

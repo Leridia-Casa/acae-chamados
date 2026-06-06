@@ -264,8 +264,8 @@ export default function NovoChamadoPage() {
   return (
     <AppShell>
       <div
-        style={{
-          padding: '2rem',
+      style={{
+          padding: 'min(2rem, 1rem)',
           maxWidth: 720,
           margin: '0 auto'
         }}

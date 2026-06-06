@@ -1,7 +1,6 @@
 'use client'
 import { AppShell } from '@/components/app-shell'
 import { BookOpen, Users, GraduationCap, Target } from 'lucide-react'
-import Image from 'next/image'
 
 const integrantes = [
   'Cauã Gasparoto Nascimento',

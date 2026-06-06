@@ -310,6 +310,21 @@ body {
   color: #7dd3fc;
   border: 1px solid rgba(14, 165, 233, 0.25);
 }
+.badge-limpeza {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+.badge-coordenacao {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fcd34d;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+.badge-administrativo {
+  background: rgba(236, 72, 153, 0.15);
+  color: #f9a8d4;
+  border: 1px solid rgba(236, 72, 153, 0.25);
+}
 /* Role Badges */
 .badge-admin {
   background: rgba(139, 71, 255, 0.2);

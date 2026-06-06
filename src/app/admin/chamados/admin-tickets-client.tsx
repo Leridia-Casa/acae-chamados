@@ -38,7 +38,7 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
   })
   const urgentCount = tickets.filter(t => t.priority === 'Urgente' && t.status !== 'Resolvido').length
   return (
-    <div style={{ padding: '2rem' }}>
+    <div style={{ padding: 'min(2rem, 1rem)' }}>
       <div className="animate-fade-in-up" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20, flexWrap: 'wrap', gap: 12 }}>
         <div>
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f0eeff', marginBottom: 4 }}>
@@ -93,7 +93,7 @@ export function AdminTicketsClient({ tickets, isAdmin }: Props) {
         )}
       </div>
       {/* Table */}
-      <div className="animate-fade-in-up animate-delay-200 glass-card" style={{ overflow: 'auto' }}>
+      <div className="animate-fade-in-up animate-delay-200 glass-card table-container">
         <table className="Acaê-table" style={{ minWidth: 800 }}>
           <thead>
             <tr>

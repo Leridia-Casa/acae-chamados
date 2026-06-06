@@ -89,7 +89,7 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
     }
   }
   return (
-    <div style={{ padding: '2rem' }}>
+    <div style={{ padding: 'min(2rem, 1rem)' }}>
       {/* Header */}
       <div className="animate-fade-in-up" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24 }}>
         <div>
@@ -119,7 +119,7 @@ export function AdminUsersClient({ users: initialUsers, currentUserId }: Props) 
         </div>
       </div>
       {/* Users table */}
-      <div className="animate-fade-in-up animate-delay-200 glass-card" style={{ overflow: 'hidden' }}>
+      <div className="animate-fade-in-up animate-delay-200 glass-card table-container">
         <table className="Acaê-table">
           <thead>
             <tr>
