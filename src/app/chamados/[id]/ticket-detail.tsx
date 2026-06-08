@@ -24,9 +24,22 @@ export function TicketDetail({ ticket, currentProfile }: Props) {
   const [updatingStatus, setUpdatingStatus] = useState(false)
   const [currentStatus, setCurrentStatus] = useState(ticket.status)
   const [comments, setComments] = useState(ticket.comments || [])
+  const [assignedUser, setAssignedUser] = useState(ticket.assigned_user)
   const isAdmin = currentProfile?.role === 'admin'
   const isTecnico = currentProfile?.role === 'tecnico' || isAdmin
   const isOwner = currentProfile?.id === ticket.user_id
+  const handleAcceptTicket = async () => {
+    if (!currentProfile || !isTecnico) return
+    setUpdatingStatus(true)
+    const supabase = createClient()
+    const { error } = await supabase
+      .from('tickets')
+      .update({ assigned_to: currentProfile.id, updated_at: new Date().toISOString() })
+      .eq('id', ticket.id)
+    if (!error) setAssignedUser(currentProfile)
+    setUpdatingStatus(false)
+  }
+
   const handleStatusChange = async (newStatus: string) => {
     if (!isTecnico) return
     setUpdatingStatus(true)
@@ -236,18 +249,35 @@ export function TicketDetail({ ticket, currentProfile }: Props) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
                 { label: 'Solicitante', value: ticket.user?.full_name ?? 'Desconhecido', icon: <User size={13} /> },
-                { label: 'Atribuído a', value: ticket.assigned_user?.full_name ?? 'Não atribuído', icon: <User size={13} /> },
+                { 
+                  label: 'Atribuído a', 
+                  value: assignedUser?.full_name ?? 'Não atribuído', 
+                  icon: <User size={13} />,
+                  action: (!assignedUser && isTecnico) ? (
+                    <button 
+                      onClick={handleAcceptTicket}
+                      disabled={updatingStatus}
+                      className="btn-primary"
+                      style={{ padding: '0.15rem 0.4rem', fontSize: '0.65rem', marginLeft: 8, height: 'auto', minHeight: 0, borderRadius: 4 }}
+                    >
+                      {updatingStatus ? 'Aceitando...' : 'Aceitar'}
+                    </button>
+                  ) : null
+                },
                 { label: 'Área', value: ticket.area, icon: null },
                 { label: 'Prioridade', value: ticket.priority, icon: null },
                 { label: 'Aberto em', value: new Date(ticket.created_at).toLocaleDateString('pt-BR'), icon: <Calendar size={13} /> },
                 { label: 'Atualizado', value: new Date(ticket.updated_at).toLocaleDateString('pt-BR'), icon: <Clock size={13} /> },
-              ].map(({ label, value, icon }) => (
+              ].map(({ label, value, icon, action }) => (
                 <div key={label}>
                   <p style={{ fontSize: '0.72rem', color: 'rgba(240,238,255,0.3)', marginBottom: 2 }}>{label}</p>
-                  <p style={{ fontSize: '0.85rem', color: 'rgba(240,238,255,0.75)', display: 'flex', alignItems: 'center', gap: 5 }}>
-                    {icon && <span style={{ color: 'rgba(240,238,255,0.3)' }}>{icon}</span>}
-                    {value}
-                  </p>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <p style={{ fontSize: '0.85rem', color: 'rgba(240,238,255,0.75)', display: 'flex', alignItems: 'center', gap: 5 }}>
+                      {icon && <span style={{ color: 'rgba(240,238,255,0.3)' }}>{icon}</span>}
+                      {value}
+                    </p>
+                    {action}
+                  </div>
                 </div>
               ))}
             </div>
