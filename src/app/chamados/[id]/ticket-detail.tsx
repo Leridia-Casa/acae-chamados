@@ -36,7 +36,24 @@ export function TicketDetail({ ticket, currentProfile }: Props) {
       .from('tickets')
       .update({ assigned_to: currentProfile.id, updated_at: new Date().toISOString() })
       .eq('id', ticket.id)
-    if (!error) setAssignedUser(currentProfile)
+    if (!error) {
+      setAssignedUser(currentProfile)
+      
+      const { data: newComment } = await supabase
+        .from('ticket_comments')
+        .insert({
+          ticket_id: ticket.id,
+          user_id: currentProfile.id,
+          content: `Técnico(a) ${currentProfile.full_name} assumiu este chamado.`,
+          is_internal: false,
+        })
+        .select('*, user:profiles(*)')
+        .single()
+        
+      if (newComment) {
+        setComments(c => [...c, newComment as any])
+      }
+    }
     setUpdatingStatus(false)
   }
 
